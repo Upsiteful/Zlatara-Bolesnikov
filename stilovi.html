@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Katalog stilova – zlatar</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Raleway:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d6b25e;
+      --soft-gold: #f1d9a0;
+      --champagne: #f7efe0;
+      --silver: #dedee8;
+      --platinum: #f5f5fb;
+      --rose-gold: #b76e79;
+      --dark-navy: #050816;
+      --midnight: #0b1020;
+      --ink: #050509;
+      --charcoal: #16151a;
+      --graphite: #1f2229;
+      --deep-green: #03211a;
+      --emerald: #074133;
+      --deep-plum: #251024;
+      --wine: #3b0715;
+      --coffee: #22130b;
+      --sand: #e7dac3;
+      --ivory: #fbf7ef;
+      --soft-gray: #c8ccd8;
+      --sky: #c4d6f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 0;
+      background: radial-gradient(circle at top, #20263a 0, #050509 45%, #000 100%);
+      font-family: "Montserrat", sans-serif;
+      color: #f5f5f5;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.25em;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    .intro {
+      text-align: center;
+      color: #bbb;
+      font-size: 14px;
+      margin-bottom: 40px;
+      font-family: "Lora", serif;
+    }
+
+    .style-block {
+      margin-bottom: 24px;
+      padding: 32px 28px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .style-block .label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    .style-block h2 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .style-block .subtitle {
+      font-size: 14px;
+      margin: 4px 0 8px;
+      opacity: 0.9;
+    }
+
+    .style-block .body-text {
+      font-size: 13px;
+      max-width: 620px;
+      line-height: 1.5;
+    }
+
+    .style-block .note {
+      font-size: 11px;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-top: 12px;
+    }
+
+    .style-block .monogram {
+      position: absolute;
+      right: 26px;
+      bottom: 20px;
+      font-size: 40px;
+      opacity: 0.12;
+      font-weight: 700;
+    }
+
+    /* 01 – klasična tamno plava + zlato */
+    .style-01 {
+      background: radial-gradient(circle at top left, #1e2940, var(--midnight));
+      color: var(--gold);
+      border: 1px solid rgba(214, 178, 94, 0.5);
+    }
+    .style-01 h2 {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .style-01 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 02 – noćno plava + srebro */
+    .style-02 {
+      background: linear-gradient(135deg, #050816, #151a2c);
+      color: var(--silver);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .style-02 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+    .style-02 .subtitle {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+    }
+
+    /* 03 – crna + hladno zlato */
+    .style-03 {
+      background: radial-gradient(circle at bottom, #111, #000);
+      color: var(--soft-gold);
+      border: 1px solid rgba(241, 217, 160, 0.4);
+    }
+    .style-03 h2 {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .style-03 .subtitle {
+      font-family: "Lora", serif;
+      font-style: italic;
+    }
+
+    /* 04 – duboko zelena + toplo zlato */
+    .style-04 {
+      background: linear-gradient(120deg, var(--deep-green), var(--emerald));
+      color: var(--champagne);
+      border: 1px solid rgba(214, 178, 94, 0.45);
+    }
+    .style-04 h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .style-04 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 20px;
+    }
+
+    /* 05 – tamno vino + zlato */
+    .style-05 {
+      background: radial-gradient(circle at top, #4b0e20, var(--wine));
+      color: var(--gold);
+      border: 1px solid rgba(183, 110, 121, 0.6);
+    }
+    .style-05 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    .style-05 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 06 – duboka šljiva + rose gold */
+    .style-06 {
+      background: linear-gradient(135deg, var(--deep-plum), #3c183a);
+      color: var(--rose-gold);
+      border: 1px solid rgba(183, 110, 121, 0.7);
+    }
+    .style-06 h2 {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 600;
+    }
+    .style-06 .subtitle {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+    }
+
+    /* 07 – grafit + šampanj */
+    .style-07 {
+      background: linear-gradient(110deg, var(--graphite), #15161d);
+      color: var(--champagne);
+      border: 1px solid rgba(231, 218, 195, 0.4);
+    }
+    .style-07 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+    }
+    .style-07 .subtitle {
+      font-family: "Lora", serif;
+    }
+
+    /* 08 – crna + čisto srebro */
+    .style-08 {
+      background: #020208;
+      color: var(--silver);
+      border: 1px solid rgba(222, 222, 232, 0.4);
+    }
+    .style-08 h2 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+    .style-08 .subtitle {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+    }
+
+    /* 09 – tamno braon + žuto zlato */
+    .style-09 {
+      background: linear-gradient(135deg, #18100a, var(--coffee));
+      color: var(--gold);
+      border: 1px solid rgba(214, 178, 94, 0.5);
+    }
+    .style-09 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-09 .subtitle {
+      font-family: "Lora", serif;
+      font-style: italic;
+    }
+
+    /* 10 – noćno plava + diskretno srebro */
+    .style-10 {
+      background: radial-gradient(circle at top, #1a2645, var(--dark-navy));
+      color: var(--platinum);
+      border: 1px solid rgba(200, 204, 216, 0.35);
+    }
+    .style-10 h2 {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .style-10 .subtitle {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* 11 – tamna šuma + toplo zlato */
+    .style-11 {
+      background: linear-gradient(120deg, #02100d, #06352a);
+      color: var(--soft-gold);
+      border: 1px solid rgba(209, 181, 118, 0.55);
+    }
+    .style-11 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    .style-11 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 22px;
+    }
+
+    /* 12 – saten šampanj + tamna tipografija */
+    .style-12 {
+      background: radial-gradient(circle at top left, #fffaf1, var(--champagne));
+      color: #2a2520;
+      border: 1px solid rgba(173, 156, 122, 0.4);
+    }
+    .style-12 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+    }
+    .style-12 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 13 – slonova kost + zlato */
+    .style-13 {
+      background: var(--ivory);
+      color: #3b2a18;
+      border: 1px solid rgba(214, 178, 94, 0.4);
+    }
+    .style-13 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-13 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 24px;
+      color: #b0863b;
+    }
+
+    /* 14 – hladna siva + srebro */
+    .style-14 {
+      background: linear-gradient(135deg, #f5f5fb, #d3d7e3);
+      color: #333744;
+      border: 1px solid rgba(153, 159, 179, 0.4);
+    }
+    .style-14 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .style-14 .subtitle {
+      font-family: "Lora", serif;
+    }
+
+    /* 15 – tamni grafit + tanko zlato */
+    .style-15 {
+      background: radial-gradient(circle at bottom right, #181a22, #05060a);
+      color: var(--soft-gold);
+      border: 1px dashed rgba(214, 178, 94, 0.5);
+    }
+    .style-15 h2 {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+    }
+    .style-15 .subtitle {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+    }
+
+    /* 16 – midnight blue + rose gold */
+    .style-16 {
+      background: linear-gradient(140deg, var(--midnight), #170c16);
+      color: var(--rose-gold);
+      border: 1px solid rgba(183, 110, 121, 0.6);
+    }
+    .style-16 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-16 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 22px;
+    }
+
+    /* 17 – duboki ugalj + srebrne linije */
+    .style-17 {
+      background: #090a0f;
+      color: var(--silver);
+      border-top: 1px solid rgba(235, 235, 245, 0.35);
+      border-bottom: 1px solid rgba(235, 235, 245, 0.35);
+    }
+    .style-17 h2 {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+    .style-17 .subtitle {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* 18 – tamno plava + svetli gradient zlata */
+    .style-18 {
+      background: radial-gradient(circle at top, #121d36, #050816);
+      color: var(--champagne);
+      border: 1px solid rgba(241, 217, 160, 0.4);
+    }
+    .style-18 h2 {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+    .style-18 .subtitle {
+      font-family: "Lora", serif;
+      font-style: italic;
+    }
+
+    /* 19 – duboka tamnozelena + champagne */
+    .style-19 {
+      background: linear-gradient(120deg, #020c0a, #0d2d25);
+      color: var(--champagne);
+      border: 1px solid rgba(196, 181, 148, 0.4);
+    }
+    .style-19 h2 {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .style-19 .subtitle {
+      font-family: "Great Vibes", cursive;
+    }
+
+    /* 20 – royal navy + čisto zlato */
+    .style-20 {
+      background: radial-gradient(circle at center, #1c2745, #050816);
+      color: var(--gold);
+      border: 1px solid rgba(214, 178, 94, 0.6);
+    }
+    .style-20 h2 {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+    .style-20 .subtitle {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    /* 21 – tamno vino + krem tipografija */
+    .style-21 {
+      background: linear-gradient(130deg, #2a050f, #471120);
+      color: var(--champagne);
+      border: 1px solid rgba(195, 151, 145, 0.5);
+    }
+    .style-21 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-21 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 22 – elegantna siva + zlatni detalj */
+    .style-22 {
+      background: linear-gradient(120deg, #d7dbe5, #f5f5fb);
+      color: #282b35;
+      border: 1px solid rgba(127, 135, 160, 0.4);
+    }
+    .style-22 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #b18a3e;
+    }
+    .style-22 .subtitle {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* 23 – crna mat + diskretno zlato */
+    .style-23 {
+      background: #020202;
+      color: var(--soft-gold);
+      border: 1px solid rgba(241, 217, 160, 0.3);
+    }
+    .style-23 h2 {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+    .style-23 .subtitle {
+      font-family: "Playfair Display", serif;
+    }
+
+    /* 24 – duboki grafit + platinasto */
+    .style-24 {
+      background: linear-gradient(145deg, #15151d, #2c3141);
+      color: var(--platinum);
+      border: 1px solid rgba(173, 177, 190, 0.45);
+    }
+    .style-24 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+    }
+    .style-24 .subtitle {
+      font-family: "Lora", serif;
+      font-style: italic;
+    }
+
+    /* 25 – tamno plava + šampanj titlovi */
+    .style-25 {
+      background: radial-gradient(circle at top left, #182446, #050816);
+      color: var(--champagne);
+      border: 1px solid rgba(214, 178, 94, 0.35);
+    }
+    .style-25 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-25 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 22px;
+    }
+
+    /* 26 – saten pesak + tamno braon */
+    .style-26 {
+      background: radial-gradient(circle at top, #f5e9d4, var(--sand));
+      color: #362720;
+      border: 1px solid rgba(177, 137, 62, 0.4);
+    }
+    .style-26 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+    }
+    .style-26 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 27 – hladna tamna + srebrne ivice */
+    .style-27 {
+      background: linear-gradient(135deg, #050816, #050913);
+      color: var(--silver);
+      border-left: 2px solid rgba(222, 222, 232, 0.6);
+    }
+    .style-27 h2 {
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+    .style-27 .subtitle {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+    }
+
+    /* 28 – zelena smaragd + krem */
+    .style-28 {
+      background: linear-gradient(120deg, #032521, #10685a);
+      color: var(--champagne);
+      border: 1px solid rgba(168, 195, 167, 0.4);
+    }
+    .style-28 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+    }
+    .style-28 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 22px;
+    }
+
+    /* 29 – grafit + ledeno srebro */
+    .style-29 {
+      background: radial-gradient(circle at top right, #1c212b, #050509);
+      color: var(--silver);
+      border: 1px solid rgba(200, 204, 216, 0.35);
+    }
+    .style-29 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-29 .subtitle {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* 30 – crna + zlato u okviru */
+    .style-30 {
+      background: #050505;
+      color: var(--soft-gold);
+      border: 1px solid rgba(214, 178, 94, 0.75);
+      box-shadow: 0 0 0 1px rgba(214, 178, 94, 0.2), 0 18px 40px rgba(0,0,0,0.7);
+    }
+    .style-30 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+    }
+    .style-30 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 31 – kožna braon + toplo zlato */
+    .style-31 {
+      background: linear-gradient(135deg, #26120a, #41261b);
+      color: var(--soft-gold);
+      border: 1px solid rgba(168, 113, 62, 0.5);
+    }
+    .style-31 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-31 .subtitle {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* 32 – duboko plava + hladno srebro */
+    .style-32 {
+      background: radial-gradient(circle at bottom, #192a4a, #050816);
+      color: var(--platinum);
+      border: 1px solid rgba(193, 202, 224, 0.4);
+    }
+    .style-32 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+    }
+    .style-32 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 33 – sivkasto plava + zlato */
+    .style-33 {
+      background: linear-gradient(120deg, #9098aa, #c4d6f5);
+      color: #22252c;
+      border: 1px solid rgba(137, 143, 160, 0.4);
+    }
+    .style-33 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      color: #b18a3e;
+    }
+    .style-33 .subtitle {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* 34 – tamna šljiva + šampanj */
+    .style-34 {
+      background: radial-gradient(circle at top, #2a1227, #060208);
+      color: var(--champagne);
+      border: 1px solid rgba(204, 168, 145, 0.5);
+    }
+    .style-34 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-34 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 22px;
+    }
+
+    /* 35 – noćni ugalj + diskretna tipografija */
+    .style-35 {
+      background: radial-gradient(circle at center, #111111, #020204);
+      color: #e0dde4;
+      border: 1px solid rgba(136, 136, 148, 0.35);
+    }
+    .style-35 h2 {
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+    }
+    .style-35 .subtitle {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+    }
+
+    /* 36 – duboka šuma + sedef */
+    .style-36 {
+      background: linear-gradient(140deg, #031712, #0c3b2f);
+      color: var(--platinum);
+      border: 1px solid rgba(164, 188, 170, 0.45);
+    }
+    .style-36 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+    }
+    .style-36 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* 37 – mlečno bela + tanko zlato */
+    .style-37 {
+      background: #fdfaf3;
+      color: #292522;
+      border: 1px solid rgba(214, 178, 94, 0.4);
+    }
+    .style-37 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-37 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 24px;
+      color: #b48b3f;
+    }
+
+    /* 38 – midnight + hladna plava */
+    .style-38 {
+      background: radial-gradient(circle at bottom, #020511, #050816);
+      color: var(--sky);
+      border: 1px solid rgba(162, 184, 218, 0.45);
+    }
+    .style-38 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+    }
+    .style-38 .subtitle {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* 39 – tamno vino + rose gold skript */
+    .style-39 {
+      background: linear-gradient(140deg, #2b0713, #4b1323);
+      color: var(--rose-gold);
+      border: 1px solid rgba(196, 130, 141, 0.55);
+    }
+    .style-39 h2 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+    }
+    .style-39 .subtitle {
+      font-family: "Great Vibes", cursive;
+      font-size: 24px;
+    }
+
+    /* 40 – tamna mešavina + zlatni logo */
+    .style-40 {
+      background: radial-gradient(circle at top left, #1c2438, #050509);
+      color: var(--champagne);
+      border: 1px solid rgba(214, 178, 94, 0.4);
+    }
+    .style-40 h2 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+    }
+    .style-40 .subtitle {
+      font-family: "Lora", italic;
+    }
+
+    /* monogram specifične nijanse za par blokova */
+    .style-01 .monogram,
+    .style-04 .monogram,
+    .style-11 .monogram,
+    .style-20 .monogram,
+    .style-30 .monogram {
+      opacity: 0.16;
+    }
+
+    @media (max-width: 768px) {
+      .style-block {
+        padding: 26px 20px 32px;
+      }
+      .style-block h2 {
+        font-size: 20px;
+        letter-spacing: 0.12em !important;
+      }
+      .style-block .monogram {
+        font-size: 32px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>KATALOG STILOVA ZA ZLATARU</h1>
+  <p class="intro">
+    Ispod je oko 40 različitih kombinacija boja i tipografije. Vlasnik može da
+    pogleda svaki stil, zabeleži broj koji mu se sviđa i iskoristi ga kao
+    orijentir za dizajn sajta.
+  </p>
+
+  <!-- Stilovi 01–40 -->
+  <!-- U svakom bloku slobodno menjaj tekst, nazive i raspored po potrebi. -->
+
+  <section class="style-block style-01">
+    <div class="label">Stil 01 &mdash; tamno plava + zlato</div>
+    <h2>BOLESNIKOV JEWELS</h2>
+    <p class="subtitle">Klasična luksuzna paleta za glavnu navigaciju sajta.</p>
+    <p class="body-text">
+      Kratak opis kolekcije nakita ili slogan brenda može stajati ovde. Ovaj stil
+      je pogodan za zaglavlje i hero sekciju.
+    </p>
+    <div class="note">Primer naslova, podnaslova i kratkog teksta.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-02">
+    <div class="label">Stil 02 &mdash; noćno plava + srebro</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Diskretan kontrast za katalog proizvoda.</p>
+    <p class="body-text">
+      Idealan za stranice sa belom fotografijom nakita, gde tipografija treba da
+      bude hladna i precizna.
+    </p>
+    <div class="note">Naslov u serifu, tekst u čitljivom sans-serifu.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-03">
+    <div class="label">Stil 03 &mdash; crna mat + toplo zlato</div>
+    <h2>ZLATARSKA RADNJA</h2>
+    <p class="subtitle">Ekstremno luksuzan izgled za premium kolekcije.</p>
+    <p class="body-text">
+      Ovaj stil prenosi osećaj ekskluzive i ograničenih serija nakita. Odličan je
+      za isticanje posebnih ponuda.
+    </p>
+    <div class="note">Preporuka: hero baner ili landing stranica.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-04">
+    <div class="label">Stil 04 &mdash; tamno zelena + zlato</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Elegancija smaragda u kombinaciji sa zlatom.</p>
+    <p class="body-text">
+      Može se koristiti za stranice sa vereničkim prstenjem, privescima i
+      klasičnim modelima inspirisanim prirodom.
+    </p>
+    <div class="note">Skript font za naglašavanje potpisa brenda.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-05">
+    <div class="label">Stil 05 &mdash; duboko vino + zlato</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Topla, bogata paleta za romantične kolekcije.</p>
+    <p class="body-text">
+      Idealno za kolekcije namenjene poklonima, godišnjicama i specijalnim
+      prilikama.
+    </p>
+    <div class="note">Može biti pozadina za sekciju &bdquo;Pokloni&ldquo;.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-06">
+    <div class="label">Stil 06 &mdash; šljiva + rose gold</div>
+    <h2>BOLESNIKOV JEWELRY</h2>
+    <p class="subtitle">Soft luksuz sa ružičastim zlatom.</p>
+    <p class="body-text">
+      Paleta koja dobro prati fotografije nakita od roze zlata i kombinacije sa
+      dragim kamenjem toplih tonova.
+    </p>
+    <div class="note">Naslov u italiku, moderan osećaj.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-07">
+    <div class="label">Stil 07 &mdash; grafit + šampanj</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Diskretno i sofisticirano za tekstualne stranice.</p>
+    <p class="body-text">
+      Prikladan za &bdquo;O nama&ldquo;, garancije, uslove i sve delove sajta gde
+      je bitna čitljivost dužeg teksta.
+    </p>
+    <div class="note">Serif naslov, serif telo teksta.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-08">
+    <div class="label">Stil 08 &mdash; crna + srebro</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Minimalistički kontrast za modernu navigaciju.</p>
+    <p class="body-text">
+      Može se koristiti za gornji meni, nogu sajta ili kartice proizvoda
+      fokusirane na bela svetla i refleksije.
+    </p>
+    <div class="note">Sans-serif naslov, serif podnaslov.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-09">
+    <div class="label">Stil 09 &mdash; tamno braon + zlato</div>
+    <h2>BOLESNIKOV GOLD</h2>
+    <p class="subtitle">Topao, tradicionalan izgled.</p>
+    <p class="body-text">
+      Podseća na boju kože i kože etuija za nakit, dobar je za prezentaciju
+      klasičnih zlatnih komada.
+    </p>
+    <div class="note">Za kolekcije venčanog prstenja i burmi.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-10">
+    <div class="label">Stil 10 &mdash; royal navy + svetlo srebro</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Elegantno, ali hladno i precizno.</p>
+    <p class="body-text">
+      Funkcioniše dobro za stranice sa detaljima o materijalima, sertifikatima i
+      tehničkim informacijama.
+    </p>
+    <div class="note">Visoka čitljivost naslova.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-11">
+    <div class="label">Stil 11 &mdash; šumska zelena + zlato</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Prirodna inspiracija u luksuznom tonu.</p>
+    <p class="body-text">
+      Ovaj stil lepo prati fotografije smaragda, zelenih i prirodno toniranih
+      dragulja.
+    </p>
+    <div class="note">Idealno za sezonske kolekcije.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-12">
+    <div class="label">Stil 12 &mdash; šampanj saten + tamno</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Svetla, mekana pozadina za tekst i fotografije.</p>
+    <p class="body-text">
+      Odgovara za blog objave, savete o odabiru nakita i sve gde se kombinuje
+      više fotografija.
+    </p>
+    <div class="note">Svetla tema sa zlatnim detaljem.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-13">
+    <div class="label">Stil 13 &mdash; slonova kost + zlato</div>
+    <h2>BOLESNIKOV JEWELS</h2>
+    <p class="subtitle">Veoma svetla, luksuzna varijanta.</p>
+    <p class="body-text">
+      Udobna za čitanje, posebno za mobilne korisnike, sa blagom toplinom u
+      pozadini.
+    </p>
+    <div class="note">Za elegantne landing stranice.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-14">
+    <div class="label">Stil 14 &mdash; hladna siva + srebro</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Moderni, tehnički izgled.</p>
+    <p class="body-text">
+      Može biti korišćen za stranice servisa, popravke nakita ili tehničke
+      informacije o legurama.
+    </p>
+    <div class="note">Diskretna boja, fokus na sadržaju.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-15">
+    <div class="label">Stil 15 &mdash; grafit + tanko zlato</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Veoma snažan kontrast sa tankim zlatnim detaljem.</p>
+    <p class="body-text">
+      Dobar izbor za sekciju sa kontaktima, adresom i radnim vremenom.
+    </p>
+    <div class="note">Naslov široko razmaknut za premium utisak.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-16">
+    <div class="label">Stil 16 &mdash; midnight + rose gold</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Sjajan kontrast za nakit od roze zlata.</p>
+    <p class="body-text">
+      Koristi se za isticanje posebnih kolekcija i limitiranih serija.
+    </p>
+    <div class="note">Toplo, ali sofisticirano.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-17">
+    <div class="label">Stil 17 &mdash; ugalj + srebro</div>
+    <h2>ZLATARA</h2>
+    <p class="subtitle">Suptilni srebrni naglasci.</p>
+    <p class="body-text">
+      Posebno prigodan za preglede kataloga i liste proizvoda gde su bitne
+      tabele i cene.
+    </p>
+    <div class="note">Gornja i donja linija naglašavaju blok.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-18">
+    <div class="label">Stil 18 &mdash; tamno plava + meko zlato</div>
+    <h2>BOLESNIKOV JEWELS</h2>
+    <p class="subtitle">Klasičan, ali sa malo mekšom zlatnom nijansom.</p>
+    <p class="body-text">
+      Kombinuje ozbiljnost i toplinu, pogodan je za uvodne tekstove i kratke
+      priče o brendu.
+    </p>
+    <div class="note">Serif u italiku za naslove.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-19">
+    <div class="label">Stil 19 &mdash; duboka tamnozelena + šampanj</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Luksuzan prirodni ton.</p>
+    <p class="body-text">
+      Izgled koji dobro radi i sa fotografijama drveta, kamena i prirodnih
+      materijala.
+    </p>
+    <div class="note">Odličan za elegantne sekcije sa pričom.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-20">
+    <div class="label">Stil 20 &mdash; royal navy + zlato high-end</div>
+    <h2>ZLATARSKA RADNJA</h2>
+    <p class="subtitle">Vrlo naglašena premium estetika.</p>
+    <p class="body-text">
+      Može da predstavlja glavnu boju identiteta ako se vlasniku posebno
+      dopada ovaj stil.
+    </p>
+    <div class="note">Dugačko razmaknuta slova daju osećaj prestiža.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-21">
+    <div class="label">Stil 21 &mdash; tamno vino + šampanj</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Topla, ali ne previše agresivna paleta.</p>
+    <p class="body-text">
+      Nudi romantičan, ali i vrlo ozbiljan okvir za prezentaciju nakita.
+    </p>
+    <div class="note">Za specijalne kolekcije i kampanje.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-22">
+    <div class="label">Stil 22 &mdash; elegantna siva + zlatni naslov</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Diskretna pozadina sa naglašenim zlatnim brendom.</p>
+    <p class="body-text">
+      Može biti dobar izbor za sekciju sa logotipom i kratkim uvodnim tekstom.
+    </p>
+    <div class="note">Neutralna, ali skupa estetika.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-23">
+    <div class="label">Stil 23 &mdash; crna mat + zlato high contrast</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Najjači kontrast u ovom katalogu.</p>
+    <p class="body-text">
+      Idealan kada želimo da sajt izgleda ultra luksuzno, poput modnog brenda
+      visoke klase.
+    </p>
+    <div class="note">Posebno efektan na ekranima sa visokim kontrastom.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-24">
+    <div class="label">Stil 24 &mdash; duboki grafit + platinasto</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Suptilna hladna kombinacija.</p>
+    <p class="body-text">
+      Preporuka za sekcije sa više tehničkih podataka i tekstova bez jarkih
+      fotografija.
+    </p>
+    <div class="note">Kombinacija za ljubitelje sivih tonova.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-25">
+    <div class="label">Stil 25 &mdash; navy + šampanj</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Kombinacija koja najviše podseća na vizit karticu.</p>
+    <p class="body-text">
+      Može biti direktna inspiracija za glavnu temu sajta, ako vlasnik želi
+      da se drži postojećeg identiteta.
+    </p>
+    <div class="note">Skript podnaslov za dodatni luksuz.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-26">
+    <div class="label">Stil 26 &mdash; pesak + tamno braon</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Svetli, prirodni tonovi.</p>
+    <p class="body-text">
+      Podseća na boju kutije za nakit ili vitrine od drveta. Prijatan za oko i
+      topao.
+    </p>
+    <div class="note">Svetla tema za ceo sajt.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-27">
+    <div class="label">Stil 27 &mdash; hladna crna + srebrni stub</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Minimal, naglašena leva ivica.</p>
+    <p class="body-text">
+      Podseća na luksuzne modne časopise, idealno za sekcije sa jednom velikom
+      fotografijom i malo teksta.
+    </p>
+    <div class="note">Vertikalna srebrna linija kao detalj.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-28">
+    <div class="label">Stil 28 &mdash; smaragd + šampanj</div>
+    <h2>ZLATARA</h2>
+    <p class="subtitle">Smaragdna pozadina sa toplim tekstom.</p>
+    <p class="body-text">
+      Lepo stoji uz fotografije bele i žute boje nakita, naročito kada ima
+      zelenih detalja.
+    </p>
+    <div class="note">Jači kolor, ali i dalje luksuzan.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-29">
+    <div class="label">Stil 29 &mdash; grafit + ledeno srebro</div>
+    <h2>BOLESNIKOV JEWELS</h2>
+    <p class="subtitle">Hladan, čist izgled.</p>
+    <p class="body-text">
+      Ovaj stil odlično komunicira preciznost i kvalitet izrade, prikladan za
+      modernije komade.
+    </p>
+    <div class="note">Dobar i za kartice proizvoda.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-30">
+    <div class="label">Stil 30 &mdash; crna u zlatnom okviru</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Vrlo luksuzan, okvir kao na kutiji nakita.</p>
+    <p class="body-text">
+      Koristi se za hero sekcije, glavne banere ili posebne poruke vlasnika.
+    </p>
+    <div class="note">Najbolje ga je koristiti štedljivo.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-31">
+    <div class="label">Stil 31 &mdash; kožna braon + toplo zlato</div>
+    <h2>BOLESNIKOV GOLD</h2>
+    <p class="subtitle">Boja luksuznog kožnog etuija.</p>
+    <p class="body-text">
+      Prijatna, topla kombinacija koja asocira na tradiciju i ručni rad.
+    </p>
+    <div class="note">Za isticanje zanatskog dela priče.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-32">
+    <div class="label">Stil 32 &mdash; duboka noć + platinasto</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Tamna pozadina za svetle fotografije.</p>
+    <p class="body-text">
+      Nudi snažan kontrast, ali ostaje elegantan i diskretan.
+    </p>
+    <div class="note">Preporuka: galerije i slide-ovi.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-33">
+    <div class="label">Stil 33 &mdash; sivkasto plava + zlatni naslov</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Prozračno, ali sofisticirano.</p>
+    <p class="body-text">
+      Pogodno za sekcije sa više praznog prostora i urednim rasporedom sadržaja.
+    </p>
+    <div class="note">Zlatni naslov kao fokus.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-34">
+    <div class="label">Stil 34 &mdash; šljiva + šampanj</div>
+    <h2>BOLESNIKOV JEWELS</h2>
+    <p class="subtitle">Suptilna, bogata kombinacija tonova.</p>
+    <p class="body-text">
+      Lepa pozadina za fotografije sa toplim osvetljenjem i bokeh efektima.
+    </p>
+    <div class="note">Naglašava zlatni i ružičasti nakit.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-35">
+    <div class="label">Stil 35 &mdash; noćni ugalj + svetli tekst</div>
+    <h2>ZLATARA</h2>
+    <p class="subtitle">Minimalistički, monohromatski izgled.</p>
+    <p class="body-text">
+      Dobro radi sa crno-belim fotografijama i jednostavnim layout-om.
+    </p>
+    <div class="note">Inspiracija: luksuzni modni editorijali.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-36">
+    <div class="label">Stil 36 &mdash; duboka šuma + sedef</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Miran, prirodan kontrast.</p>
+    <p class="body-text">
+      Dobar izbor za predstavljanje dragog kamenja i prirodnih materijala.
+    </p>
+    <div class="note">Osećaj luksuznog butika.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-37">
+    <div class="label">Stil 37 &mdash; mlečno bela + zlato</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Vrlo svetla, gotovo editorijal paleta.</p>
+    <p class="body-text">
+      Može biti glavna tema kada je želja da sajt izgleda čist, prozračan i
+      luksuzan.
+    </p>
+    <div class="note">Skript podnaslov naglašava stil.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-38">
+    <div class="label">Stil 38 &mdash; midnight + hladna plava</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Hladna, moderna interpretacija tamne teme.</p>
+    <p class="body-text">
+      Dobro kombinuje osećaj tehnologije i luksuza, može biti pogodna za online
+      prodavnicu.
+    </p>
+    <div class="note">Za digitalno orijentisani deo brenda.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-39">
+    <div class="label">Stil 39 &mdash; vino + rose gold skript</div>
+    <h2>BOLESNIKOV</h2>
+    <p class="subtitle">Topao, romantičan potpis brenda.</p>
+    <p class="body-text">
+      Idealno za stranice povodom Dana zaljubljenih, 8. marta i sličnih
+      kampanja.
+    </p>
+    <div class="note">Naglašena skript tipografija.</div>
+    <div class="monogram">B</div>
+  </section>
+
+  <section class="style-block style-40">
+    <div class="label">Stil 40 &mdash; navy + zlato završni</div>
+    <h2>ZLATARA BOLESNIKOV</h2>
+    <p class="subtitle">Kombinacija koja povezuje sve prethodne stilove.</p>
+    <p class="body-text">
+      Može poslužiti kao kompromis između svih tamnih i svetlih varijanti, uz
+      prepoznatljivu zlatnu tipografiju.
+    </p>
+    <div class="note">Odličan kandidat za glavni identitet.</div>
+    <div class="monogram">B</div>
+  </section>
+
+</main>
+</body>
+</html>
