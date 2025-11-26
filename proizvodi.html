@@ -1472,7 +1472,21 @@
     document.addEventListener('DOMContentLoaded', init);
   } else init();
 })();
+   const body = document.body;
+    const navToggle = document.querySelector('.nav-toggle');
+
+    navToggle.addEventListener('click', () => {
+        body.classList.toggle('nav-open');
+    });
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            body.classList.remove('nav-open');
+        });
+    });
 </script>
 
 </body>
 </html>
+
