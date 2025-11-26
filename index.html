@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Златарска радња Болесников | Насловна</title>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- SEO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Златарска радња Болесников у Новом Саду – ручно рађен накит, поправка и израда по мери у луксузном, али приступачном окружењу.">
+    <meta name="keywords"
+          content="златара, накит, поправка накита, израда по мери, Нови Сад, Болесников, златарска радња">
+    <meta name="author" content="Златарска радња Болесников">
+
+    <!-- Structured data (скраћено) -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "JewelryStore",
+          "name": "Zlatarska radnja Bolesnikov",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jevrejska 42",
+            "addressLocality": "Novi Sad",
+            "addressCountry": "RS"
+          },
+          "telephone": "+381216623822"
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #d6b25e;
+            --soft-gold: #f1d9a0;
+            --bg-deep: #050816;
+            --bg-navy: #1e2940;
+            --text-light: #f6f3e8;
+            --muted: #b3a48a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: var(--soft-gold);
+            background: radial-gradient(circle at top, var(--bg-navy) 0, var(--bg-deep) 55%, #000 100%);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(5, 8, 22, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(214, 178, 94, 0.3);
+            transition: opacity .7s ease;
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid rgba(214, 178, 94, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Cinzel", serif;
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .brand-text span {
+            display: block;
+            line-height: 1.2;
+        }
+
+        .brand-name {
+            font-family: "Cinzel", serif;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .brand-sub {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        nav a {
+            position: relative;
+            padding-bottom: 3px;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width .25s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(214, 178, 94, 0.5);
+            background: transparent;
+            color: var(--soft-gold);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle span,
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            display: block;
+            width: 14px;
+            height: 2px;
+            background: var(--soft-gold);
+            border-radius: 999px;
+            position: relative;
+            transition: transform .3s, opacity .3s;
+        }
+
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+        .nav-toggle span::before {
+            top: -5px;
+        }
+
+        .nav-toggle span::after {
+            top: 5px;
+        }
+
+        .nav-open .nav-toggle span {
+            transform: rotate(45deg);
+        }
+
+        .nav-open .nav-toggle span::before {
+            transform: rotate(-90deg);
+            top: 0;
+        }
+
+        .nav-open .nav-toggle span::after {
+            opacity: 0;
+        }
+
+        
+
+        /* ПРЕЛАЗ СТРАНИЦЕ – ЗЛАТАРА → ГОЛУБОВИ */
+
+        main {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            transition: opacity .7s ease, filter .7s ease;
+        }
+
+        body.to-pigeons main {
+            opacity: 0.35;
+            filter: blur(3px);
+        }
+
+        body.to-pigeons header {
+            opacity: 0.4;
+        }
+
+        .page-transition {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient(circle at top,
+                         rgba(214,178,94,0.0) 0,
+                         rgba(5,8,22,0.0) 40%,
+                         rgba(5,8,22,1) 100%);
+            transition: opacity .7s ease, background .7s ease;
+            z-index: 900;
+        }
+
+        body.to-pigeons .page-transition {
+            opacity: 1;
+            background: radial-gradient(circle at top,
+                         rgba(160,190,230,0.75) 0,
+                         rgba(40,60,110,0.95) 40%,
+                         rgba(5,8,22,1) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .pigeon-svg {
+                width: 52px;
+                height: 34px;
+            }
+            .pigeon-link {
+                margin-left: 10px;
+            }
+        }
+
+        /* LAYOUT */
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            font-family: "Cinzel", serif;
+            font-size: 24px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .section-subtitle {
+            font-family: "Lora", serif;
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        /* HERO */
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+            gap: 40px;
+            align-items: center;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -200px 35% 40%;
+            background: radial-gradient(circle at top, rgba(214, 178, 94, 0.32), transparent 60%);
+            opacity: .7;
+            mix-blend-mode: soft-light;
+            pointer-events: none;
+            animation: glow 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-30px); }
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-family: "Cinzel", serif;
+            font-size: 36px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            line-height: 1.5;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hero-lead {
+            font-family: "Lora", serif;
+            font-size: 17px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .btn-primary,
+        .btn-ghost {
+            border-radius: 999px;
+            padding: 11px 24px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            border: 1px solid var(--gold);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background .3s, color .3s, transform .3s, box-shadow .3s;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #050509;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--soft-gold);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(214, 178, 94, 0.12);
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .hero-meta span strong {
+            display: block;
+            font-size: 15px;
+            color: var(--soft-gold);
+            margin-bottom: 1px;
+        }
+
+        /* HERO CARD */
+
+        .hero-card {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-panel {
+            border-radius: 18px;
+            border: 1px solid rgba(214, 178, 94, 0.55);
+            padding: 22px 20px 20px;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), rgba(3, 6, 18, 0.98));
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-panel-title {
+            font-family: "Cinzel", serif;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .hero-panel p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .hero-panel ul {
+            margin-top: 14px;
+            list-style: none;
+            font-size: 12px;
+        }
+
+        .hero-panel li {
+            margin-bottom: 6px;
+        }
+
+        .hero-panel li::before {
+            content: "◆";
+            font-size: 9px;
+            color: var(--gold);
+            margin-right: 6px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .about-side {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .about-photo-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(214, 178, 94, 0.4);
+            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-photo {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: transform .5s ease, filter .5s ease;
+        }
+
+        .about-photo-wrapper:hover .about-photo {
+            transform: scale(1.03);
+            filter: brightness(1);
+        }
+
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 12px;
+        }
+
+        .about-stat {
+            border-radius: 14px;
+            border: 1px solid rgba(214, 178, 94, 0.35);
+            padding: 12px 14px;
+            background: rgba(9, 11, 25, 0.85);
+        }
+
+        .about-stat strong {
+            display: block;
+            font-size: 16px;
+            color: var(--soft-gold);
+            margin-bottom: 3px;
+        }
+
+        /* SERVICES – три картице са сликама */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .service-card {
+            border-radius: 16px;
+            border: 1px solid rgba(214, 178, 94, 0.35);
+            background: rgba(9, 11, 25, 0.9);
+            padding: 14px 14px 18px;
+            font-size: 13px;
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .service-image {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: transform .4s ease, filter .4s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+            filter: brightness(1);
+        }
+
+        .service-title {
+            font-family: "Cinzel", serif;
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .service-badge {
+            display: inline-block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        /* GALLERY – IZ NAŠE RADIONICE */
+
+        .gallery {
+            padding-top: 40px;
+            padding-bottom: 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            border: 1px solid rgba(214, 178, 94, 0.35);
+            height: 180px;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: transform .4s ease, filter .4s ease, box-shadow .4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            filter: brightness(1);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        /* FEATURED PIECES */
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .piece-card {
+            border-radius: 16px;
+            border: 1px solid rgba(214, 178, 94, 0.3);
+            background: rgba(6, 8, 20, 0.95);
+            overflow: hidden;
+            transition: transform .3s ease, border-color .3s ease;
+        }
+
+        .piece-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .piece-body {
+            padding: 14px 14px 16px;
+            font-size: 13px;
+        }
+
+        .piece-body h3 {
+            font-family: "Cinzel", serif;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .piece-body span {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        /* WHY US */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 14px;
+        }
+
+        .why-item {
+            border-radius: 16px;
+            border: 1px solid rgba(214, 178, 94, 0.3);
+            padding: 18px 18px 18px;
+            background: rgba(6, 8, 20, 0.95);
+            font-size: 13px;
+        }
+
+        .why-item h3 {
+            font-family: "Cinzel", serif;
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: var(--gold);
+        }
+
+        /* TESTIMONIALS */
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .quote-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .quote {
+            border-radius: 16px;
+            border: 1px solid rgba(214, 178, 94, 0.32);
+            padding: 16px 18px;
+            background: rgba(9, 11, 25, 0.92);
+            font-size: 13px;
+            font-family: "Lora", serif;
+            color: var(--text-light);
+        }
+
+        .quote small {
+            display: block;
+            margin-top: 8px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .rating {
+            font-size: 12px;
+            color: var(--gold);
+            margin-top: 4px;
+        }
+
+        /* CTA & FOOTER */
+
+        .cta {
+            text-align: center;
+            padding: 60px 0 0;
+        }
+
+        .cta p {
+            margin: 14px auto 22px;
+            max-width: 520px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .cta small {
+            display: block;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 30px 24px 12px;
+            font-size: 12px;
+            color: var(--muted);
+            border-top: 1px solid rgba(214, 178, 94, 0.25);
+            text-align: center;
+        }
+
+        footer span {
+            display: block;
+        }
+
+        footer a {
+            text-decoration: underline;
+            text-decoration-color: rgba(214, 178, 94, 0.6);
+        }
+
+        /* SCROLL REVEAL */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 960px) {
+            .hero,
+            .about-grid,
+            .testimonials {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero-title {
+                font-size: 30px;
+                letter-spacing: 0.16em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                inset: 64px 16px auto 16px;
+                padding: 16px 18px;
+                border-radius: 18px;
+                background: rgba(5, 8, 22, 0.98);
+                border: 1px solid rgba(214, 178, 94, 0.3);
+                flex-direction: column;
+                gap: 14px;
+                transform: translateY(-20px);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity .3s ease, transform .3s ease;
+            }
+
+            .nav-open nav {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .header-inner,
+            main {
+                padding-inline: 18px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+        /* Дугме – Font Awesome голуб у навигацији */
+
+.pigeon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 18px;
+    font-size: 22px; /* величина иконе */
+}
+
+.pigeon-btn i {
+    color: var(--soft-gold);
+    transition: transform .25s ease, text-shadow .25s ease, color .25s ease;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+.pigeon-btn:hover i {
+    transform: translateY(-1px) scale(1.08);
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(214, 178, 94, 0.9);
+}
+
+@media (max-width: 768px) {
+    .pigeon-btn {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+}
+/* НАКИТ И ГОЛУБОВИ – ПРЕЛАЗНИ ОДЕЉАК */
+
+.animals-section {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+.animals-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+    gap: 32px;
+    align-items: center;
+}
+
+.animals-text {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.animals-highlight {
+    font-family: "Lora", serif;
+    font-size: 15px;
+    color: var(--soft-gold);
+    margin-bottom: 10px;
+}
+
+.animals-card {
+    border-radius: 18px;
+    border: 1px solid rgba(214, 178, 94, 0.4);
+    background: rgba(6, 8, 20, 0.95);
+    padding: 18px 18px 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+}
+
+.animals-image {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.animals-image img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    filter: brightness(0.95);
+    transition: transform .5s ease, filter .5s ease;
+}
+
+.animals-card:hover .animals-image img {
+    transform: scale(1.04);
+    filter: brightness(1);
+}
+
+.animals-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* CTA дугме у овом одељку може да користи већ постојећу .btn-ghost или .btn-primary */
+
+@media (max-width: 960px) {
+    .animals-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            <div class="brand-mark">Б</div>
+            <div class="brand-text">
+                <span class="brand-name">БОЛЕСНИКОВ</span>
+                <span class="brand-sub">златарска радња · Нови Сад</span>
+            </div>
+        </div>
+
+        <nav aria-label="Главна навигација">
+            <a href="#hero">Насловна</a>
+            <a href="#about">О златари</a>
+            <a href="#services">Услуге</a>
+            <a href="proizvodi.html">Колекција</a>
+            <a href="#contact">Контакт</a>
+
+         
+            <!-- Дугме – Font Awesome голуб -->
+    <a href="golubovi.html" class="pigeon-btn" aria-label="Такмичарски голубови">
+        <i class="fa-solid fa-dove"></i>
+    </a>
+        </nav>
+
+        <button class="nav-toggle" aria-label="Мени">
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section id="hero" class="hero reveal">
+        <div class="hero-copy">
+            <p class="hero-eyebrow">РУЧНИ РАД · ТРАДИЦИЈА · ПОВЕРЕЊЕ</p>
+            <h1 class="hero-title">Златарска<br>радња Болесников</h1>
+            <p class="hero-lead">
+                Место где се накит не купује случајно, већ бира са пажњом. Породична радионица у којој сваки
+                комад има своју причу.
+            </p>
+            <div class="hero-cta">
+                <a href="#pieces" class="btn-primary">погледај колекцију</a>
+                <a href="#services" class="btn-ghost">поправка накита</a>
+            </div>
+            <div class="hero-meta">
+                <span><strong>30+</strong> година искуства</span>
+                <span><strong>мајсторска</strong> израда у металу и камену</span>
+                <span><strong>накит</strong> који се преноси генерацијама</span>
+            </div>
+        </div>
+
+        <aside class="hero-card">
+            <div class="hero-panel">
+                <p class="hero-panel-title">Поправка породичног накита</p>
+                <p>
+                    Специјализовани за фино подешавање, рестаурацију и оживљавање накита који има вредност далеко већу
+                    од материјалне.
+                </p>
+                <ul>
+                    <li>скраћивање и проширивање прстенова и наруквица</li>
+                    <li>поправка ланаца, копчи и поставки</li>
+                    <li>полирање и освежавање сјаја</li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+        <div class="about-grid">
+            <div>
+                <h2 class="section-title">О златари</h2>
+                <p class="section-subtitle">
+                    Скромна радионица која је израсла у адресу препоруке – за веридбе, венчања и све важне датуме.
+                </p>
+                <p class="about-text">
+                    Златарска радња Болесников настајала је деценијама, стрпљиво, као и сваки добро направљен
+                    прстен. Наша филозофија је једноставна: мало комада, али сваки пажљиво промишљен. Клијенти нам
+                    се враћају када пожеле да некоме поклоне нешто што ће се чувати годинама.
+                </p>
+            </div>
+            <aside class="about-side">
+                <div class="about-photo-wrapper">
+                    <!-- ФОТОГРАФИЈА ВЛАСНИКА / РАДЊЕ -->
+                    <img src="vlasnik.webp"
+                         alt="Радионица златаре Болесников" class="about-photo">
+                </div>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <strong>Од 1990.</strong>
+                        Породична традиција и занат који се преноси са генерације на генерацију.
+                    </div>
+                    <div class="about-stat">
+                        <strong>Ручни рад</strong>
+                        Производња малих серија и комада по мери, без масовне производње.
+                    </div>
+                    <div class="about-stat">
+                        <strong>Сертификати и гаранција</strong>
+                        Сваки комад прати ознака финоће метала и писана гаранција рада за потпуну сигурност при куповини.
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="reveal">
+        <h2 class="section-title">Услуге</h2>
+        <p class="section-subtitle">
+            Неколико пажљиво одабраних услуга – све што вам је потребно да накит изгледа и осећа се савршено.
+        </p>
+
+        <div class="services-grid">
+            <article class="service-card">
+                <div class="service-image">
+                    <img src="popravka nakita.webp"
+                         alt="Радни сто за поправку накита">
+                </div>
+                <span class="service-badge">главна услуга</span>
+                <h3 class="service-title">Поправка и рестаурација</h3>
+                <p>
+                    Од ситних интервенција до потпуног преобликовања, ваш накит враћамо у стање које заслужује.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=80"
+                         alt="Дизајн прстена по мери">
+                </div>
+                <span class="service-badge">по мери</span>
+                <h3 class="service-title">Израда уникатних комада</h3>
+                <p>
+                    Ако већ имате идеју или скицу, заједно са мајстором креирамо накит који постоји само за вас.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?auto=format&fit=crop&w=900&q=80"
+                         alt="Полирање и чишћење накита">
+                </div>
+                <span class="service-badge">нега</span>
+                <h3 class="service-title">Одржавање и освежавање</h3>
+                <p>
+                    Полирање, чишћење и провера поставки – мали сервиси који значе дуг век вашим омиљеним комадима.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- GALLERY – IZ NAŠE RADIONICE -->
+    <section class="gallery reveal">
+        <h2 class="section-title">Из наше радионице</h2>
+        <p class="section-subtitle">
+            Неколико тренутака ухваћених током рада – мир, прецизност и светлост на металу.
+        </p>
+        <div class="gallery-grid">
+            <img class="gallery-item"
+                 src="slika1.jpg"
+                 alt="Детаљ рада на накиту">
+            <img class="gallery-item"
+                 src="slika4.jpg"
+                 alt="Накит на радном столу">
+            <img class="gallery-item"
+                 src="slika3.jpg"
+                 alt="Изложени комади у витрини">
+        </div>
+    </section>
+
+    <!-- FEATURED PIECES -->
+    <section id="pieces" class="reveal">
+        <h2 class="section-title">Издвојени комади</h2>
+        <p class="section-subtitle">
+            Мали избор дизајна као увод у оно што ћете видети уживо. Целокупна колекција биће доступна на посебној
+            страници.
+        </p>
+
+        <div class="collection-grid">
+            <article class="piece-card">
+                <img src="prsten.jpg"
+                     alt="Златан прстен са каменом">
+                <div class="piece-body">
+                    <h3>Солитер „Јеврејска“</h3>
+                    <span>класичан веренички модел</span>
+                    <p>Чисте линије и пажљиво бирани каменчићи – минимализам који не стари.</p>
+                </div>
+            </article>
+
+            <article class="piece-card">
+                <img src="srebra ogrlica.webp"
+                     alt="Елегантна огрлица">
+                <div class="piece-body">
+                    <h3>Ланчана огрлица „Дунав“</h3>
+                    <span>свакодневна елеганција</span>
+                    <p>Фини ланац који се лако комбинује са медаљонима и другим комадима.</p>
+                </div>
+            </article>
+
+            <article class="piece-card">
+                <img src="mindjuse2.png"
+                     alt="Златне минђуше">
+                <div class="piece-body">
+                    <h3>Минђуше „Трг слободе“</h3>
+                    <span>за свечане прилике</span>
+                    <p>Детаљно израђени елементи који прате светло и покрет.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+        <!-- НАКИТ И ГОЛУБОВИ – ПРЕЛАЗНИ ОДЕЉАК -->
+    <section class="animals-section reveal">
+        <h2 class="section-title">Накит, обележја и голубови</h2>
+        <p class="section-subtitle">
+            Исти мир руке који обликује бурму, обликује и алку за такмичарског голуба – прецизно, читљиво и са поштовањем према животињи.
+        </p>
+
+        <div class="animals-grid">
+            <div class="animals-text">
+                <p class="animals-highlight">
+                    Поред класичног златарства, у радионици Болесников настају и специјализоване алке за такмичарске голубове.
+                </p>
+                <p>
+                    Свака алка носи јасно утиснуте податке, како би птица била лако препозната и заштићена. Иако је реч о
+                    практичном обележју, приступ је исти као и код накита – прецизност мере, удобност при ношењу и трајност
+                    материјала.
+                </p>
+                <p>
+                    Власник златаре је дугогодишњи голубар и познавалац такмичарских правила, па су алке прилагођене стварним
+                    потребама одгајивача и самих птица. За оне који желе више детаља о линијама, резултатима и текстовима о
+                    голубовима, припремљена је посебна страница.
+                </p>
+
+                <div style="margin-top:18px;">
+                    <a href="golubovi.html" class="btn-ghost">
+                        сазнајте више о голубовима
+                    </a>
+                </div>
+            </div>
+
+            <aside class="animals-card">
+                <div class="animals-image">
+                    <!-- ОВДЕ СТАВИ СВОЈУ ФОТОГРАФИЈУ -->
+                    <!-- Предлог: детаљ руке која држи алку и перје голуба у позадини -->
+                    <img src="nanogica za goluba.jpg" alt="Алке за такмичарске голубове">
+                </div>
+                <p>
+                    У понуди су серијске и персонализоване алке: са иницијалима, бројевима линија, годинама и другим обележјима
+                    по договору. Испорука је могућа и ван Новог Сада.
+                </p>
+                <p class="animals-note">
+                    За специјалне захтеве или већи број комада, најбоље је да нам се јавите е-поруком или телефоном ради договора око дизајна.
+                </p>
+            </aside>
+        </div>
+    </section>
+
+    <!-- WHY US + TESTIMONIALS -->
+    <section class="reveal">
+        <h2 class="section-title">Зашто клијенти бирају нас</h2>
+        <p class="section-subtitle">
+            Поред квалитета израде, издвајају три ствари које им значе највише.
+        </p>
+
+        <div class="why-grid">
+            <div class="why-item">
+                <h3>Искрен савет</h3>
+                <p>Увек отворено кажемо шта је најбоље решење за ваш накит – понекад је довољна мала поправка, а понекад нови дизајн.</p>
+            </div>
+            <div class="why-item">
+                <h3>Пажња на детаљ</h3>
+                <p>Сваки спој, камен и површина пролазе кроз ручну контролу квалитета пре него што комад напусти радионицу.</p>
+            </div>
+            <div class="why-item">
+                <h3>Подршка и након куповине</h3>
+                <p>За наше радове обезбеђујемо саветовање, контролу и сервис по договору, како би накит дуго остао у одличном стању.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="testimonials">
+            <div>
+                <h2 class="section-title">Утисци клијената</h2>
+                <p class="section-subtitle">
+                    Највећа награда су нам препоруке наших задовољних муштерија. Неколико реченица које често чујемо.
+                </p>
+            </div>
+            <div class="quote-list">
+                <div class="quote">
+                    „Бурме смо радили код Болесникова по препоруци родитеља. И после десет година изгледају као нове.“
+                    <small>Милица и Дејан</small>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="quote">
+                    „Донела сам стару породичну огрлицу, нисам била сигурна шта може да се спаси. Сада имам сет који
+                    носим сваког празника.“
+                    <small>Јелена</small>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / CONTACT PREVIEW -->
+    <section id="contact" class="cta reveal">
+        <h2 class="section-title">Посетите нас или пошаљите упит</h2>
+        <p>
+            Најтачнију процену увек дајемо уживо, али први корак можете направити већ сада. Кратко опишите шта вам је
+            потребно и, ако имате, приложите фотографију накита.
+        </p>
+        <a href="mailto:v.bolesnikov@gmail.com" class="btn-primary">пошаљи е-поруку</a>
+        <small>Телефон: 021 6623 822 · Јеврејска 42, Нови Сад</small>
+    </section>
+</main>
+
+<footer>
+    <span>© 2025 Златарска радња Болесников · Сва права задржана.</span>
+    <span>Јеврејска 42, Нови Сад · Тел: 021 6623 822 · Е-пошта: <a href="mailto:v.bolesnikov@gmail.com">v.bolesnikov@gmail.com</a></span>
+    <span style="margin-top:6px;">
+        Поред златарства, власник се бави и такмичарским голубовима – више о томе биће доступно на посебној страници.
+    </span>
+</footer>
+
+<!-- OVERLAY ZA PRELAZ NA STRANICU O GOLUBOVIMA -->
+<div class="page-transition" id="pageTransition"></div>
+
+<script>
+    // Mobile navigation toggle
+    const body = document.body;
+    const navToggle = document.querySelector('.nav-toggle');
+
+    navToggle.addEventListener('click', () => {
+        body.classList.toggle('nav-open');
+    });
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            body.classList.remove('nav-open');
+        });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Golub – animacija лета + постепени прелаз на голубове
+   
+</script>
+
+</body>
+</html>

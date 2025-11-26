@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Админ панел | Златарска радња Болесников</title>
+
+  <!-- Fonts u skladu sa ostatkom sajta -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d6b25e;
+      --soft-gold: #f1d9a0;
+      --bg-deep: #050816;
+      --bg-navy: #1e2940;
+      --text-light: #f6f3e8;
+      --muted: #b3a48a;
+      --danger: #ff6b6b;
+      --success: #7dd56f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Montserrat", sans-serif;
+      background: radial-gradient(circle at top, var(--bg-navy) 0, var(--bg-deep) 55%, #000 100%);
+      color: var(--soft-gold);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .admin-shell {
+      width: 100%;
+      max-width: 1080px;
+      border-radius: 24px;
+      border: 1px solid rgba(214, 178, 94, 0.45);
+      background: radial-gradient(circle at top left,
+      rgba(255, 255, 255, 0.06),
+      rgba(5, 8, 22, 0.98));
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
+      padding: 26px 26px 26px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+      gap: 32px;
+    }
+
+    .admin-shell::before {
+      content: "";
+      position: absolute;
+      inset: -40% 40% auto -20%;
+      background: radial-gradient(circle at top,
+      rgba(214, 178, 94, 0.24),
+      transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    @media (max-width: 880px) {
+      .admin-shell {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 22px 18px 24px;
+      }
+    }
+
+    /* HEADER UNUTAR ADMINA */
+
+    .admin-header {
+      position: relative;
+      z-index: 1;
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .admin-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(214, 178, 94, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .admin-brand-text span {
+      display: block;
+      line-height: 1.2;
+    }
+
+    .admin-name {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .admin-sub {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .admin-tagline {
+      font-family: "Lora", serif;
+      font-size: 13px;
+      color: var(--soft-gold);
+      text-align: right;
+      max-width: 260px;
+    }
+
+    @media (max-width: 620px) {
+      .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .admin-tagline {
+        text-align: left;
+      }
+    }
+
+    /* LOGIN PANEL */
+
+    #loginDiv {
+      position: relative;
+      z-index: 1;
+      border-radius: 18px;
+      border: 1px solid rgba(214, 178, 94, 0.4);
+      background: rgba(5, 8, 22, 0.96);
+      padding: 20px 18px 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      align-self: flex-start;
+    }
+
+    #loginDiv h2 {
+      font-family: "Cinzel", serif;
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    #loginDiv input {
+      width: 100%;
+      padding: 9px 11px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(214, 178, 94, 0.35);
+      background: rgba(3, 5, 14, 0.9);
+      color: var(--text-light);
+      font-size: 13px;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    #loginDiv input::placeholder {
+      color: rgba(243, 236, 220, 0.55);
+    }
+
+    #loginDiv input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px rgba(214, 178, 94, 0.45);
+    }
+
+    #loginDiv button {
+      width: 100%;
+      margin-top: 4px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #050509;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    #loginDiv button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      background: #e0c06e;
+    }
+
+    #loginMsg {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--danger);
+      min-height: 16px;
+    }
+
+    /* PANEL ZA PROIZVODE */
+
+    #productDiv {
+      position: relative;
+      z-index: 1;
+      border-radius: 18px;
+      border: 1px solid rgba(214, 178, 94, 0.4);
+      background: rgba(5, 8, 22, 0.96);
+      padding: 20px 18px 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      align-self: stretch;
+    }
+
+    #productDiv h2 {
+      font-family: "Cinzel", serif;
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    #productForm {
+      margin-top: 6px;
+    }
+
+    #productForm input,
+    #productForm textarea {
+      width: 100%;
+      padding: 9px 11px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(214, 178, 94, 0.35);
+      background: rgba(3, 5, 14, 0.9);
+      color: var(--text-light);
+      font-size: 13px;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    #productForm textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    #productForm input::placeholder,
+    #productForm textarea::placeholder {
+      color: rgba(243, 236, 220, 0.55);
+    }
+
+    #productForm input:focus,
+    #productForm textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px rgba(214, 178, 94, 0.45);
+    }
+
+    #productForm label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+
+    #filterDivTitle {
+      margin-top: 8px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    #filterDiv {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 14px;
+      margin-bottom: 14px;
+    }
+
+    #filterDiv label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(10, 12, 25, 0.9);
+      border: 1px solid rgba(214, 178, 94, 0.25);
+      font-size: 12px;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, transform .15s ease;
+    }
+
+    #filterDiv label:hover {
+      background: rgba(214, 178, 94, 0.12);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    #filterDiv input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    #productForm button[type="submit"] {
+      margin-top: 4px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #050509;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    #productForm button[type="submit"]:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      background: #e0c06e;
+    }
+
+    #logout {
+      margin-top: 14px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: transparent;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    #logout:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.35);
+      color: var(--text-light);
+    }
+
+    #msg {
+      margin-top: 8px;
+      font-size: 12px;
+      min-height: 16px;
+      color: var(--success);
+    }
+
+    /* NASLOV ADMIN SEKCIJE UNUTAR FORME (dodatni opis) */
+
+    .admin-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .admin-note strong {
+      color: var(--soft-gold);
+      font-weight: 600;
+    }
+
+    @media (max-width: 880px) {
+      #productDiv {
+        order: 3;
+      }
+      #loginDiv {
+        order: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-shell">
+    <!-- HEADER U OKVIRU ADMINA -->
+    <header class="admin-header">
+      <div class="admin-brand">
+        <div class="admin-mark">Б</div>
+        <div class="admin-brand-text">
+          <span class="admin-name">БОЛЕСНИКОВ</span>
+          <span class="admin-sub">админ панел · интерна зона</span>
+        </div>
+      </div>
+      <p class="admin-tagline">
+        Приватна страница за управљање колекцијом накита. Све измене су видљиве на сајту након чувања.
+      </p>
+    </header>
+
+    <!-- Login forma -->
+    <div id="loginDiv">
+      <h2>Пријава</h2>
+      <p class="admin-note">
+        Унесите <strong>админ е-пошту</strong> и <strong>лозинку</strong> да бисте приступили додавању нових производа у колекцију.
+      </p>
+      <input type="email" id="email" placeholder="Админ е-пошта" />
+      <input type="password" id="password" placeholder="Лозинка" />
+      <button id="loginBtn">Пријави се</button>
+      <p id="loginMsg"></p>
+    </div>
+
+    <!-- Forma za dodavanje proizvoda -->
+    <div id="productDiv" style="display:none;">
+      <h2>Додај нови производ</h2>
+      <p class="admin-note">
+        Овде можете да унесете <strong>назив, опис, цену, слику</strong> и изаберете филтере.
+        Након чувања, производ ће се појавити у јавној колекцији на сајту.
+      </p>
+
+      <form id="productForm">
+        <input type="text" id="naziv" placeholder="Назив производа" required />
+        <textarea id="opis" placeholder="Кратак опис производа" required></textarea>
+        <input type="text" id="cena" placeholder="Цена (RSD)" required />
+
+        <label for="slika">Слика производа</label>
+        <input type="file" id="slika" accept="image/*" required />
+
+        <div id="filterDivTitle">Означите филтере:</div>
+        <div id="filterDiv">
+          <label><input type="checkbox" value="prsten"> Прстен</label>
+          <label><input type="checkbox" value="ogrlica"> Огрлица</label>
+          <label><input type="checkbox" value="narukvica"> Наруквица</label>
+          <label><input type="checkbox" value="sat"> Сат</label>
+          <label><input type="checkbox" value="zlatni"> Златни</label>
+          <label><input type="checkbox" value="srebrni"> Сребрни</label>
+          <label><input type="checkbox" value="platinski"> Платински</label>
+          <label><input type="checkbox" value="dijamant"> Дијамант</label>
+        </div>
+
+        <button type="submit">сачувај производ</button>
+      </form>
+
+      <button id="logout">одјава</button>
+      <p id="msg"></p>
+    </div>
+  </div>
+
+  <!-- Firebase + Cloudinary -->
+  <script type="module">
+    // Import Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDyAO-4f5lke0fpB8M5HQY9UEievyoz5w4",
+      authDomain: "zlatara-bolesnikov.firebaseapp.com",
+      projectId: "zlatara-bolesnikov",
+      storageBucket: "zlatara-bolesnikov.firebasestorage.app",
+      messagingSenderId: "444327293695",
+      appId: "1:444327293695:web:1a83087a7ade3940ffd2ca",
+      measurementId: "G-B03TZ5Z1GH"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Login logika
+    const loginDiv = document.getElementById("loginDiv");
+    const productDiv = document.getElementById("productDiv");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginMsg = document.getElementById("loginMsg");
+
+    loginBtn.addEventListener("click", async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        loginMsg.textContent = "";
+      } catch (err) {
+        loginMsg.textContent = "Грешка при пријави: " + err.message;
+      }
+    });
+
+    // Provera login statusa
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        loginDiv.style.display = "none";
+        productDiv.style.display = "block";
+      } else {
+        loginDiv.style.display = "block";
+        productDiv.style.display = "none";
+      }
+    });
+
+    // Dodavanje proizvoda
+    const productForm = document.getElementById("productForm");
+    const msg = document.getElementById("msg");
+
+    productForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById("naziv").value;
+      const desc = document.getElementById("opis").value;
+      const price = document.getElementById("cena").value;
+      const imgUrl = document.getElementById("slika").files[0];
+      const category = Array.from(document.querySelectorAll("#filterDiv input[type='checkbox']:checked"))
+                            .map(cb => cb.value);
+
+      if (!imgUrl) return alert("Морате изабрати слику!");
+
+      try {
+        // Cloudinary upload
+        const formData = new FormData();
+        formData.append("file", imgUrl);
+        formData.append("upload_preset", "proizvodi"); // ostavljeno kao kod tebe
+        formData.append("cloud_name", "dbbuf9yww");    // ostavljeno kao kod tebe
+
+        const res = await fetch(`https://api.cloudinary.com/v1_1/dbbuf9yww/image/upload`, {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+        const slikaURL = data.secure_url;
+
+        // Dodaj proizvod u Firestore
+        await addDoc(collection(db, "products"), {
+          title: title,
+          desc: desc,
+          price: parseInt(price),
+          category: category,
+          img: slikaURL,
+          createdAt: new Date()
+        });
+
+        msg.style.color = "#7dd56f";
+        msg.textContent = "Производ је успешно додат ✅";
+        productForm.reset();
+      } catch (err) {
+        msg.style.color = "#ff6b6b";
+        msg.textContent = "Грешка: " + err.message;
+      }
+    });
+
+    // Logout
+    document.getElementById("logout").addEventListener("click", async () => {
+      await signOut(auth);
+    });
+  </script>
+</body>
+</html>
