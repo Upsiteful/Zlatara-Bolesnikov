@@ -53,7 +53,7 @@
             display: block;
         }
 
-        /* HEADER (isto kao „лукс“ варијанта) */
+        /* HEADER */
 
         header {
             position: sticky;
@@ -386,7 +386,7 @@
             margin-bottom: 4px;
         }
 
-        /* AUTORSKI TEKST – PLACEHOLDER BLOK */
+        /* AUTORSKI TEKСТ – PLACEHOLDER BLOК */
 
         .author-block {
             display: grid;
@@ -467,11 +467,11 @@
             border-color: var(--gold);
         }
 
-        /* GOLUBOVI NA PRODAJU – PLACEHOLDER KARTICE */
+        /* GOLUBOVI NA PRODAJU – GRID */
 
         .for-sale-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
@@ -482,6 +482,8 @@
             padding: 16px 16px 18px;
             box-shadow: 0 18px 50px rgba(0,0,0,0.8);
             font-size: 13px;
+            max-width: 320px;      /* da ne bude razvučeno preko cele širine */
+            justify-self: center;  /* centriraj karticu unutar grid kolone */
         }
 
         .sale-title {
@@ -518,6 +520,50 @@
 
         .sale-cta {
             margin-top: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* Foto na kartici goluba */
+        .sale-photo-wrap {
+            border-radius: 14px;
+            overflow: hidden;
+            margin: -4px -4px 10px;
+        }
+
+        .sale-photo {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Dugme za pedigre */
+        .pedigree-btn {
+            border-radius: 999px;
+            padding: 7px 16px;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--soft-gold);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background .25s ease, color .25s ease, transform .2s ease;
+        }
+
+        .pedigree-btn i {
+            font-size: 12px;
+        }
+
+        .pedigree-btn:hover {
+            background: var(--gold);
+            color: #050509;
+            transform: translateY(-1px);
         }
 
         .sale-cta a {
@@ -650,6 +696,57 @@
                 max-width: 190px;
             }
         }
+
+        /* FULLSCREEN MODAL ZA ПЕДИГРЕ */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            display: none;
+            z-index: 9999;
+        }
+
+        .modal.is-open {
+            display: block;
+        }
+
+        .modal-content {
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        #pedigreeImg {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            background: #000;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: var(--gold);
+            color: #050509;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+        }
+
+        .modal-close:hover {
+            filter: brightness(0.95);
+        }
     </style>
 </head>
 <body>
@@ -705,8 +802,6 @@
 
         <div class="hero-media">
             <div class="hero-frame">
-                <!-- ОВДЕ КАСНИЈЕ УБАЦИ СВОЈУ ФОТОГРАФИЈУ -->
-                <!-- Предлог: власник поред голубарника или голуб у лету, хоризонтална фотографија -->
                 <img src="golub.webp"
                      alt="Такмичарски голубови у лету" class="hero-photo">
             </div>
@@ -789,68 +884,15 @@
         </div>
     </section>
 
-    <!-- GOLUBOVI NA PRODAJU – PLACEHOLDER -->
+    <!-- GOLUBOVI NA PRODAJU – DINAMIČKI -->
     <section id="sale" class="reveal">
         <h2 class="section-title">Голубови на продају</h2>
         <p class="section-subtitle">
-            Одељак намењен понуди голубова – основне информације, линија, старост и напомена о резултатима. Овде су
-            тренутно постављени пример шаблона.
+            Одабрани голубови из голубарника – име, основне информације и педигре који можете прегледати у пуној величини.
         </p>
 
-        <div class="for-sale-grid">
-            <article class="sale-card">
-                <span class="sale-badge">пример огласа</span>
-                <h3 class="sale-title">Планиран унос примерка #1</h3>
-                <div class="sale-meta">
-                    <span>старост: 2023. годиште</span>
-                    <span>линија: [унети линију]</span>
-                </div>
-                <p class="sale-desc">
-                    Кратак опис голуба – карактеристике, потенцијал и напомена да ће детаљи о пореклу и резултатима
-                    бити додати касније.
-                </p>
-                <div class="sale-cta">
-                    <a href="mailto:v.bolesnikov@gmail.com?subject=Upit%20-%20golub%20primer%201">
-                        пошаљи упит <i class="fa-solid fa-envelope"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="sale-card">
-                <span class="sale-badge">пример огласа</span>
-                <h3 class="sale-title">Планиран унос примерка #2</h3>
-                <div class="sale-meta">
-                    <span>старост: 2022. годиште</span>
-                    <span>линија: [унети линију]</span>
-                </div>
-                <p class="sale-desc">
-                    Овде може стајати опис типа „проверена линија за средње руте“, информација о родитељима и препорука
-                    за даљи узгој.
-                </p>
-                <div class="sale-cta">
-                    <a href="mailto:v.bolesnikov@gmail.com?subject=Upit%20-%20golub%20primer%202">
-                        пошаљи упит <i class="fa-solid fa-envelope"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="sale-card">
-                <span class="sale-badge">пример огласа</span>
-                <h3 class="sale-title">Планиран унос примерка #3</h3>
-                <div class="sale-meta">
-                    <span>старост: 2021. годиште</span>
-                    <span>линија: [унети линију]</span>
-                </div>
-                <p class="sale-desc">
-                    Placeholder за голуба са већ оствареним резултатима. Овде ћете касније унети конкретне трке и
-                    позиције, као и цену ако желите да буде јавно истакнута.
-                </p>
-                <div class="sale-cta">
-                    <a href="mailto:v.bolesnikov@gmail.com?subject=Upit%20-%20golub%20primer%203">
-                        пошаљи упит <i class="fa-solid fa-envelope"></i>
-                    </a>
-                </div>
-            </article>
+        <div class="for-sale-grid" id="pigeonList">
+            <!-- Dinamički učitani golubovi iz Firestore-a -->
         </div>
     </section>
 
@@ -867,6 +909,14 @@
         <small>Упути можете слати и ван радног времена златаре – јавићемо се у најкраћем року.</small>
     </section>
 </main>
+
+<!-- FULLSCREEN MODAL ZA PEDIGRE -->
+<div class="modal" id="pedigreeModal">
+    <button class="modal-close" id="closePedigree">&times;</button>
+    <div class="modal-content">
+        <img id="pedigreeImg" src="" alt="Педигре голуба">
+    </div>
+</div>
 
 <footer>
     <span>© 2025 Златарска радња Болесников · Сва права задржана.</span>
@@ -902,6 +952,175 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<!-- Firebase + logika za golubove -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDyAO-4f5lke0fpB8M5HQY9UEievyoz5w4",
+    authDomain: "zlatara-bolesnikov.firebaseapp.com",
+    projectId: "zlatara-bolesnikov",
+    storageBucket: "zlatara-bolesnikov.firebasestorage.app",
+    messagingSenderId: "444327293695",
+    appId: "1:444327293695:web:1a83087a7ade3940ffd2ca",
+    measurementId: "G-B03TZ5Z1GH"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const pigeonList = document.getElementById('pigeonList');
+  const pedigreeModal = document.getElementById('pedigreeModal');
+  const pedigreeImg = document.getElementById('pedigreeImg');
+  const closePedigree = document.getElementById('closePedigree');
+
+  function openPedigreeModal(src) {
+    pedigreeImg.src = src;
+    pedigreeModal.classList.add('is-open');
+  }
+
+  function closePedigreeModal() {
+    pedigreeModal.classList.remove('is-open');
+    pedigreeImg.src = "";
+  }
+
+  closePedigree.addEventListener('click', closePedigreeModal);
+  pedigreeModal.addEventListener('click', (e) => {
+    if (e.target === pedigreeModal) {
+      closePedigreeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closePedigreeModal();
+    }
+  });
+
+  async function loadPigeons() {
+    try {
+      const snap = await getDocs(collection(db, "pigeons"));
+      const pigeons = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      renderPigeons(pigeons);
+    } catch (err) {
+      console.error("Greška pri učitavanju golubova:", err);
+      pigeonList.innerHTML = "<p style='color: var(--muted);'>Тренутно није могуће учитати голубове.</p>";
+    }
+  }
+
+//   function renderPigeons(pigeons) {
+//     pigeonList.innerHTML = "";
+
+//     if (!pigeons.length) {
+//       pigeonList.innerHTML = "<p style='color: var(--muted);'>Тренутно нема унетих голубова.</p>";
+//       return;
+//     }
+
+//     pigeons.forEach(p => {
+//       const card = document.createElement('article');
+//       card.className = 'sale-card';
+
+//       card.innerHTML = `
+//         ${p.img ? `
+//           <div class="sale-photo-wrap">
+//             <img src="${p.img}" alt="${p.name || 'Голуб'}" class="sale-photo">
+//           </div>
+//         ` : ""}
+
+//         <span class="sale-badge">понуда</span>
+
+//         <h3 class="sale-title">${p.name || 'Голуб'}</h3>
+
+//         <div class="sale-meta">
+//           ${p.year ? `<span>старост: ${p.year}. годиште</span>` : ""}
+//           ${p.line ? `<span>линија: ${p.line}</span>` : ""}
+//         </div>
+
+//         ${p.desc ? `<p class="sale-desc">${p.desc}</p>` : ""}
+
+//         <div class="sale-cta">
+//           ${p.pedigree ? `
+//             <button class="pedigree-btn" data-pedigree="${p.pedigree}">
+//               педигре <i class="fa-solid fa-image"></i>
+//             </button>
+//           ` : ""}
+//           <a href="mailto:v.bolesnikov@gmail.com?subject=Upit%20-%20golub%20${encodeURIComponent(p.name || '')}">
+//             пошаљи упит <i class="fa-solid fa-envelope"></i>
+//           </a>
+//         </div>
+//       `;
+
+//       const btn = card.querySelector('.pedigree-btn');
+//       if (btn) {
+//         btn.addEventListener('click', (e) => {
+//           e.stopPropagation();
+//           const src = btn.getAttribute('data-pedigree');
+//           if (src) openPedigreeModal(src);
+//         });
+//       }
+
+//       pigeonList.appendChild(card);
+//     });
+//   }
+  function renderPigeons(pigeons) {
+    pigeonList.innerHTML = "";
+
+    if (!pigeons.length) {
+      pigeonList.innerHTML = "<p style='color: var(--muted);'>Тренутно нема унетих голубова.</p>";
+      return;
+    }
+
+    pigeons.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'sale-card';
+
+      card.innerHTML = `
+        ${p.img ? `
+          <div class="sale-photo-wrap">
+            <img src="${p.img}" alt="${p.name || 'Голуб'}" class="sale-photo">
+          </div>
+        ` : ""}
+
+        <span class="sale-badge">понуда</span>
+
+        <h3 class="sale-title">${p.name || 'Голуб'}</h3>
+
+        <div class="sale-meta">
+          ${p.year ? `<span>старост: ${p.year}. годиште</span>` : ""}
+          ${p.line ? `<span>линија: ${p.line}</span>` : ""}
+        </div>
+
+        ${p.desc ? `<p class="sale-desc">${p.desc}</p>` : ""}
+
+        <div class="sale-cta">
+          ${p.pedigree ? `
+            <button class="pedigree-btn" data-pedigree="${p.pedigree}">
+              педигре <i class="fa-solid fa-image"></i>
+            </button>
+          ` : ""}
+          <a href="golub.html?id=${p.id}">
+            Детаљи
+          </a>
+        </div>
+      `;
+
+      const btn = card.querySelector('.pedigree-btn');
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const src = btn.getAttribute('data-pedigree');
+          if (src) openPedigreeModal(src);
+        });
+      }
+
+      pigeonList.appendChild(card);
+    });
+  }
+
+  loadPigeons();
 </script>
 
 </body>
