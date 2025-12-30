@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="sr">
 <head>
@@ -480,6 +482,8 @@
           <input type="text" id="naziv" placeholder="Назив производа" required />
           <textarea id="opis" placeholder="Кратак опис производа" required></textarea>
           <input type="text" id="cena" placeholder="Цена (RSD)" required />
+          <input type="text" id="sifra" placeholder="Шифра (интерно за власника)" />
+
 
           <label for="slika">Слика производа</label>
           <input type="file" id="slika" accept="image/*" required />
@@ -692,6 +696,7 @@
       const title = document.getElementById("naziv").value;
       const desc = document.getElementById("opis").value;
       const price = document.getElementById("cena").value;
+      const code = (document.getElementById("sifra").value || "").trim();
       const imgFile = document.getElementById("slika").files[0];
       const category = Array.from(document.querySelectorAll("#filterDiv input[type='checkbox']:checked"))
         .map(cb => cb.value);
@@ -710,6 +715,7 @@
           price: parseInt(price),
           category: category,
           img: slikaURL,
+          code: code || null,   
           createdAt: new Date()
         });
 
@@ -887,5 +893,4 @@
   </script>
 </body>
 </html>
-
 
