@@ -437,6 +437,46 @@
     @media (max-width: 480px) {
       .modal-dialog { padding-inline: 16px; }
     }
+
+    .order-banner {
+  max-width: 1180px;
+  margin: 26px auto 0;
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(214,178,94,0.18),
+    rgba(214,178,94,0.05)
+  );
+  border: 1px solid rgba(214,178,94,0.45);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+}
+
+.order-banner p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-light);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.order-banner strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .order-banner {
+    margin: 18px 18px 0;
+    padding: 14px 16px;
+  }
+
+  .order-banner p {
+    font-size: 11px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -463,6 +503,19 @@
     </button>
   </div>
 </header>
+<section class="order-banner">
+  <p>
+    За поруџбине у износу преко <strong>5.000 RSD</strong> обезбеђена је
+    <strong>бесплатна достава</strong> на територији целе Србије.
+    <br>
+    <strong>Нови Сад:</strong> све поруџбине су бесплатне, уз могућност
+    <strong>доставе исти дан</strong> за поруџбине реализоване данас.
+    <br>
+    Поправке је могуће организовати по принципу
+    <strong>„данас за данас“</strong> на територији Новог Сада путем курирске службе.
+    За детаљније информације, <strong>контактирајте нас</strong>.
+  </p>
+</section>
 
 <main>
   <section id="productSection">
@@ -485,6 +538,9 @@
         <label for="product">Производ</label>
         <input type="text" name="product" id="product" readonly>
       </div>
+        <input type="hidden" name="code" id="code">
+  <input type="hidden" name="product_id" id="product_id">
+
       <div class="field">
         <label for="name">Име и презиме</label>
         <input type="text" name="name" id="name" placeholder="Унесите име и презиме" required>
@@ -563,6 +619,10 @@
   const orderSubmit  = document.getElementById('orderSubmit');
   const orderMsg     = document.getElementById('orderMsg');
   const productInput = document.getElementById('product');
+const codeInput    = document.getElementById('code');
+const productIdInp = document.getElementById('product_id');
+
+let currentProductCode = "";
 
   let currentProductTitle = "";
   let currentProductId = "";
@@ -582,12 +642,17 @@
   }
 
   function openOrderModal() {
-    if (isAlreadyOrdered) return;
-    if (productInput && currentProductTitle) productInput.value = currentProductTitle;
-    orderMsg.textContent = "";
-    orderMsg.classList.remove('error');
-    orderModal.classList.add('is-open');
-  }
+  if (isAlreadyOrdered) return;
+
+  if (productInput && currentProductTitle) productInput.value = currentProductTitle;
+  if (codeInput) codeInput.value = currentProductCode || "";
+  if (productIdInp) productIdInp.value = currentProductId || "";
+
+  orderMsg.textContent = "";
+  orderMsg.classList.remove('error');
+  orderModal.classList.add('is-open');
+}
+
 
   function closeOrderModal() {
     orderModal.classList.remove('is-open');
@@ -633,6 +698,7 @@
 
       const p = { id: snap.id, ...snap.data() };
       currentProductTitle = p.title || "Производ";
+currentProductCode = (p.code || "").toString().trim();
 
       const priceText = (typeof p.price === "number")
         ? p.price.toLocaleString('sr-RS') + " RSD"
@@ -699,9 +765,13 @@
 
         // upiši u ordered_products/{productId} (ne brišemo proizvod)
         try {
-          await setDoc(doc(db, "ordered_products", currentProductId), {
-  createdAt: serverTimestamp()
+         await setDoc(doc(db, "ordered_products", currentProductId), {
+  productId: currentProductId,
+  title: currentProductTitle || null,
+  code: currentProductCode || null,
+  orderedAt: serverTimestamp()
 });
+
 
         } catch (e) {
           console.warn("Поруџбина је послата, али упис у ordered_products није успео:", e);
@@ -733,5 +803,6 @@
 
 </body>
 </html>
+
 
 
