@@ -466,26 +466,22 @@
   <aside class="filters">
     <h3>Филтери</h3>
     <div class="filter-category">
-      <h4>Категорија</h4>
-      <label><input type="checkbox" class="filter" data-category="prstenje"> Прстенови</label>
-      <label><input type="checkbox" class="filter" data-category="ogrlice"> Огрлице</label>
-      <label><input type="checkbox" class="filter" data-category="narukvice"> Наруквице</label>
-      <label><input type="checkbox" class="filter" data-category="satovi"> Сатови</label>
-      <label><input type="checkbox" class="filter" data-category="zlatnici"> Златници</label>
-    </div>
+  <h4>Категорија</h4>
+  <label><input type="checkbox" class="filter" data-category="prsten"> Прстен</label>
+  <label><input type="checkbox" class="filter" data-category="ogrlica"> Огрлица</label>
+  <label><input type="checkbox" class="filter" data-category="narukvica"> Наруквица</label>
+  <label><input type="checkbox" class="filter" data-category="zlatni"> Златни</label>
+  <label><input type="checkbox" class="filter" data-category="srebrni"> Сребрни</label>
+</div>
+
 
     <div class="filter-price">
       <h4>Цена до</h4>
-      <input type="range" id="priceRange" min="0" max="200000" step="1000" value="100000">
-      <span id="priceValue">100.000 RSD</span>
+      <input type="range" id="priceRange" min="0" max="10000" step="100" value="5000">
+      <span id="priceValue">5.000 RSD</span>
     </div>
 
-    <div class="filter-material">
-      <h4>Материјал</h4>
-      <label><input type="checkbox" class="filter" data-material="zlato"> Злато</label>
-      <label><input type="checkbox" class="filter" data-material="srebro"> Сребро</label>
-      <label><input type="checkbox" class="filter" data-material="platina"> Платина</label>
-    </div>
+    
   </aside>
 
   <main class="product-list" id="productList"></main>
@@ -624,3 +620,4 @@
 
 </body>
 </html>
+
