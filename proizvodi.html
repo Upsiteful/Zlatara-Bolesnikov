@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Колекција | Златарска радња Болесников</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts (isti kao на главној страници) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+  <style>
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --gold: #d6b25e;
+      --soft-gold: #f1d9a0;
+      --bg-deep: #050816;
+      --bg-navy: #1e2940;
+      --text-light: #f6f3e8;
+      --muted: #b3a48a;
+        --bg-solid: #18243a; /* isto kao --bg-navy, ili malo finije po želji */
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #faf7f0;
+      color: #333;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { background-color:#f2e6d8; }
+
+    .brand-name { font-size: 16px; line-height: 1.2; color:  #3b2f2f; }
+    .brand-name strong { font-size: 20px; letter-spacing: 1px; color: #3b2f2f; }
+    .brand-name .subtext { font-size: 14px; font-weight: 300; color: #bfae84; }
+
+    .navbar ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+    .navbar a { text-decoration: none; color:  #3b2f2f; font-weight: 500; font-size: 14px; transition: color 0.2s ease; }
+    .navbar a:hover { color: #ffffff; }
+
+    footer { font-size: 0.9em; border-top: 1px solid #e0d9c8; background-color: #fff; padding: 15px; }
+
+    .container { display: flex; padding: 20px; gap: 20px; flex-wrap: wrap; }
+
+    .filters {
+      flex: 1 1 220px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      height: fit-content;
+    }
+
+    .filters h3 { margin-bottom: 15px; font-size: 1.2em; color: #333; }
+    .filters h4 { margin-top: 15px; font-size: 1em; color: #555; }
+    .filters label { display: block; margin: 6px 0; cursor: pointer; }
+    .filters input[type="range"] { width: 100%; }
+
+    .product-list {
+      flex: 3 1 600px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product-item {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-item:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
+
+    .product-item img {
+      width: 100%;
+      height: 220px;          /* фиксна висина = све картице исте */
+      object-fit: cover;      /* сече вишак, чува естетику */
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .product-item h4 { margin: 10px 0 5px 0; font-size: 1.1em; color: #333; }
+    .product-item p { margin: 5px 0; font-size: 0.95em; color: #555; }
+    .product-item .price { color: #d4af37; font-weight: bold; margin-top: 5px; }
+
+    .product-item a {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #d4af37;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      text-decoration: none;
+    }
+
+    .product-item a:hover { background-color: #b08b2f; }
+
+    @media(max-width: 900px){
+      .container { flex-direction: column; }
+      .filters { width: 100%; margin-bottom: 20px; }
+    }
+
+    /* ====== LUKSUZNI STILOVI (prekrivaju gore) ====== */
+    :root {
+      --gold: #d6b25e;
+      --soft-gold: #f1d9a0;
+      --bg-deep: #050816;
+      --bg-navy: #1e2940;
+      --text-light: #f6f3e8;
+      --muted: #b3a48a;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: var(--soft-gold);
+     background: var(--bg-solid);
+    }
+
+    .page-intro {
+      max-width: 1180px;
+      margin: 40px auto 10px;
+      padding: 0 24px;
+    }
+
+    .page-intro-title {
+      font-family: "Cinzel", serif;
+      font-size: 26px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .page-intro-sub {
+      font-family: "Lora", serif;
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 10px auto 60px;
+      padding: 0 24px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .container { flex-direction: column; }
+    }
+
+    .filters {
+      background: rgba(6, 8, 20, 0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(214, 178, 94, 0.35);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      padding: 18px 18px 20px;
+      color: var(--text-light);
+    }
+
+    .filters h3 {
+      font-family: "Cinzel", serif;
+      font-size: 16px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: var(--gold);
+    }
+
+    .filters h4 {
+      margin-top: 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .filters label { font-size: 13px; color: var(--text-light); margin: 6px 0; }
+    .filters input[type="checkbox"] { accent-color: var(--gold); margin-right: 6px; }
+    .filters input[type="range"] { width: 100%; margin-top: 8px; }
+    #priceValue { display: inline-block; margin-top: 4px; font-size: 12px; color: var(--soft-gold); }
+
+    .product-list {
+      flex: 3 1 600px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .product-item {
+      background: radial-gradient(circle at top left,
+      rgba(255,255,255,0.06),
+      rgba(5, 8, 22, 0.98));
+      border-radius: 18px;
+      border: 1px solid rgba(214, 178, 94, 0.3);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.75);
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: left;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.9);
+      border-color: var(--gold);
+    }
+
+    .product-item img{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      display: block;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .product-item h4 {
+      font-family: "Cinzel", serif;
+      font-size: 16px;
+      color: var(--soft-gold);
+      margin: 4px 0 4px;
+    }
+
+    .product-item p { font-size: 13px; color: var(--text-light); margin: 3px 0; }
+
+    .product-item .price {
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    .product-item a {
+      margin-top: 10px;
+      align-self: flex-start;
+      padding: 9px 16px;
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      color: var(--soft-gold);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .25s ease, color .25s ease, transform .2s ease;
+    }
+
+    .product-item a:hover {
+      background: var(--gold);
+      color: #050509;
+      transform: translateY(-1px);
+    }
+
+    footer {
+      background: rgba(5, 8, 22, 0.98);
+      color: var(--muted);
+      border-top: 1px solid rgba(214, 178, 94, 0.25);
+      padding: 26px 18px 18px;
+      font-size: 12px;
+      text-align: center;
+    }
+    footer span { display: block; margin: 2px 0; }
+    footer a { color: var(--soft-gold); text-decoration: underline; text-decoration-color: rgba(214, 178, 94, 0.6); }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(5, 8, 22, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(214, 178, 94, 0.3);
+      transition: opacity .7s ease;
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .brand-mark {
+      width: 60px !important;
+      height: 60px !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .brand-mark img { width: 100%; height: auto; }
+
+    .brand-text span { display: block; line-height: 1.2; }
+    .brand-name { font-family: "Cinzel", serif; letter-spacing: 0.18em; text-transform: uppercase; font-size: 14px; }
+    .brand-sub { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    nav a { position: relative; padding-bottom: 3px; }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width .25s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    .nav-toggle {
+      display: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(214, 178, 94, 0.5);
+      background: transparent;
+      color: var(--soft-gold);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 14px;
+      height: 2px;
+      background: var(--soft-gold);
+      border-radius: 999px;
+      position: relative;
+      transition: transform .3s, opacity .3s;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .nav-toggle span::before { top: -5px; }
+    .nav-toggle span::after  { top: 5px; }
+
+    .nav-open .nav-toggle span { transform: rotate(45deg); }
+    .nav-open .nav-toggle span::before { transform: rotate(-90deg); top: 0; }
+    .nav-open .nav-toggle span::after { opacity: 0; }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        inset: 64px 16px auto 16px;
+        padding: 16px 18px;
+        border-radius: 18px;
+        background: rgba(5, 8, 22, 0.98);
+        border: 1px solid rgba(214, 178, 94, 0.3);
+        flex-direction: column;
+        gap: 14px;
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s ease, transform .3s ease;
+      }
+      .nav-open nav {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .nav-toggle { display: inline-flex; }
+      .header-inner, main { padding-inline: 18px; }
+      section { padding: 60px 0; }
+    }
+
+    .pigeon-btn { display: inline-flex; align-items: center; justify-content: center; margin-left: 18px; font-size: 22px; }
+    .pigeon-btn i {
+      color: var(--soft-gold);
+      transition: transform .25s ease, text-shadow .25s ease, color .25s ease;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    }
+    .pigeon-btn:hover i {
+      transform: translateY(-1px) scale(1.08);
+      color: var(--gold);
+      text-shadow: 0 0 10px rgba(214, 178, 94, 0.9);
+    }
+    @media (max-width: 768px) {
+      .pigeon-btn { margin-left: 10px; font-size: 20px; }
+    }
+    /* --- LANGUAGE SWITCHER --- */
+.lang-switcher {
+    position: relative;
+    margin-left: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.lang-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(214, 178, 94, 0.5);
+    background: transparent;
+    color: var(--soft-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.lang-btn:hover {
+    transform: translateY(-1px);
+    border-color: var(--gold);
+    background: rgba(214, 178, 94, 0.10);
+}
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 190px;
+    border-radius: 14px;
+    border: 1px solid rgba(214, 178, 94, 0.3);
+    background: rgba(5, 8, 22, 0.98);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    display: none;
+    z-index: 999;
+}
+
+.lang-switcher.open .lang-menu {
+    display: block;
+}
+
+.lang-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.lang-item:hover {
+    background: rgba(214, 178, 94, 0.10);
+    border-color: rgba(214, 178, 94, 0.25);
+}
+
+.flag {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* === GOOGLE TRANSLATE: ukloni top banner (kao na starom sajtu) === */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+html body > .skiptranslate,
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+html { top: 0 !important; }
+body { top: 0 !important; }
+
+/* dopune koje često trebaju na modernijem layout-u */
+iframe.goog-te-banner-frame { display: none !important; }
+#goog-gt-tt, .goog-tooltip, .goog-tooltip:hover,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            <div class="brand-mark"><img src="ChatGPT Image Dec 8, 2025, 09_09_13 PM.png" alt="logo"></div>
+            <div class="brand-text">
+                <span class="brand-name notranslate">БОЛЕСНИКОВ</span>
+                <span class="brand-sub">златарска радња · Нови Сад</span>
+            </div>
+        </div>
+
+        <nav aria-label="Главна навигација">
+            <a href="index.html#hero">Насловна</a>
+            <a href="index.html#about">О златари</a>
+            <a href="index.html#services">Услуге</a>
+            <a href="proizvodi.html">Колекција</a>
+            <a href="index.html#contact">Контакт</a>
+
+         
+            <!-- Дугме – Font Awesome голуб -->
+    <a href="golubovi.html" class="pigeon-btn" aria-label="Такмичарски голубови">
+        <i class="fa-solid fa-dove"></i>
+    </a>
+ <div class="lang-switcher" id="langSwitcher">
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Language">
+        <i class="fa-solid fa-globe"></i>
+    </button>
+
+   <div class="lang-menu" id="langMenu" role="menu" aria-label="Choose language">
+  <button class="lang-item" type="button" data-lang="sr">
+    <span class="flag">🇷🇸</span> <span class="lang-label notranslate" translate="no">Srpski</span>
+  </button>
+
+  <button class="lang-item" type="button" data-lang="en">
+    <span class="flag">🇬🇧</span> <span class="lang-label notranslate" translate="no">English</span>
+  </button>
+
+  <button class="lang-item" type="button" data-lang="nl">
+    <span class="flag">🇳🇱</span> <span class="lang-label notranslate" translate="no">Nederlands</span>
+  </button>
+
+  <button class="lang-item" type="button" data-lang="de">
+    <span class="flag">🇩🇪</span> <span class="lang-label notranslate" translate="no">Deutsch</span>
+  </button>
+
+  <button class="lang-item" type="button" data-lang="zh-CN">
+    <span class="flag">🇨🇳</span> <span class="lang-label notranslate" translate="no">中文</span>
+  </button>
+
+  <button class="lang-item" type="button" data-lang="hu">
+    <span class="flag">🇭🇺</span> <span class="lang-label notranslate" translate="no">Magyar</span>
+  </button>
+
+  <button class="lang-item" type="button" data-lang="es">
+    <span class="flag">🇪🇸</span> <span class="lang-label notranslate" translate="no">Español</span>
+  </button>
+
+  <button class="lang-item" type="button" data-lang="it">
+    <span class="flag">🇮🇹</span> <span class="lang-label notranslate" translate="no">Italiano</span>
+  </button>
+</div>
+
+
+</div>
+
+<!-- Hidden container for Google Translate -->
+
+
+
+        </nav>
+
+
+
+
+        <button class="nav-toggle" aria-label="Мени">
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<section class="page-intro">
+  <h1 class="page-intro-title">Колекција</h1>
+  <p class="page-intro-sub">
+    Одабрани комади из радионице Болесников. Понуђени модели су пример стила и израде – комплетна понуда се стално ажурира, а за
+    специјалне жеље можете нам се обратити директно.
+  </p>
+</section>
+
+<div class="container">
+  <aside class="filters">
+    <h3>Филтери</h3>
+    <div class="filter-category">
+  <h4>Категорија</h4>
+  <label><input type="checkbox" class="filter" data-category="prsten"> Прстен</label>
+  <label><input type="checkbox" class="filter" data-category="ogrlica"> Огрлица</label>
+  <label><input type="checkbox" class="filter" data-category="narukvica"> Наруквица</label>
+  <label><input type="checkbox" class="filter" data-category="zlatni"> Златни</label>
+  <label><input type="checkbox" class="filter" data-category="srebrni"> Сребрни</label>
+</div>
+
+
+    <div class="filter-price">
+      <h4>Цена до</h4>
+      <input type="range" id="priceRange" min="0" max="10000" step="100" value="5000">
+      <span id="priceValue">5.000 RSD</span>
+    </div>
+
+    
+  </aside>
+
+  <main class="product-list" id="productList"></main>
+</div>
+
+<footer>
+  <span>© 2025 Златарска радња Болесников · Сва права задржана.</span>
+  <span>Јеврејска 42, Нови Сад · Тел: 021 6623 822 · Е-пошта: <a href="mailto:v.bolesnikov@gmail.com">v.bolesnikov@gmail.com</a></span>
+</footer>
+
+<!-- Firebase + logika proizvoda + skrivanje poručenih -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDyAO-4f5lke0fpB8M5HQY9UEievyoz5w4",
+    authDomain: "zlatara-bolesnikov.firebaseapp.com",
+    projectId: "zlatara-bolesnikov",
+    storageBucket: "zlatara-bolesnikov.firebasestorage.app",
+    messagingSenderId: "444327293695",
+    appId: "1:444327293695:web:1a83087a7ade3940ffd2ca",
+    measurementId: "G-B03TZ5Z1GH"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const productList = document.getElementById("productList");
+  const priceRange = document.getElementById('priceRange');
+  const priceValue = document.getElementById('priceValue');
+
+  let products = [];
+  let orderedSet = new Set();
+
+  // Učitaj listu poručenih proizvoda: kolekcija "ordered_products"
+  // (svaki doc ID = productId)
+  async function loadOrderedSet() {
+    const snap = await getDocs(collection(db, "ordered_products"));
+    orderedSet = new Set(snap.docs.map(d => d.id));
+  }
+
+  // Učitaj proizvode iz Firestore i skloni poručene
+  async function loadProducts() {
+    await loadOrderedSet();
+
+    const querySnapshot = await getDocs(collection(db, "products"));
+    products = querySnapshot.docs
+      .map(doc => ({ id: doc.id, ...doc.data() }))
+      .filter(p => !orderedSet.has(p.id)); // ključно: sakrij poručene
+
+    displayProducts();
+  }
+
+  function normalizeCategory(p) {
+    // U tvom adminu je "category" array checkbox-ova.
+    // U filtrima ovde koristiš string (data-category).
+    // Ovim podržavamo oba slučaja: string ili array.
+    if (!p) return [];
+    if (Array.isArray(p.category)) return p.category;
+    if (typeof p.category === "string") return [p.category];
+    return [];
+  }
+
+  function normalizeMaterial(p) {
+    // Ako imaš posebno polje material (string), podrži i to.
+    // Ako nemaš, a u category držiš tip "zlatni/srebrni/platinski",
+    // možeš i to mapirati po želji. Za sada podržavam p.material ako postoji.
+    if (!p) return [];
+    if (Array.isArray(p.material)) return p.material;
+    if (typeof p.material === "string") return [p.material];
+    return [];
+  }
+
+  function displayProducts() {
+    const categoryFilters = Array.from(document.querySelectorAll('.filter[data-category]:checked'))
+      .map(f => f.dataset.category);
+    const materialFilters = Array.from(document.querySelectorAll('.filter[data-material]:checked'))
+      .map(f => f.dataset.material);
+    const maxPrice = parseInt(priceRange.value, 10);
+
+    productList.innerHTML = '';
+
+    const filtered = products.filter(p => {
+      const pCats = normalizeCategory(p);
+      const pMats = normalizeMaterial(p);
+
+      const categoryOk = (categoryFilters.length === 0) ||
+        categoryFilters.some(c => pCats.includes(c));
+
+      const materialOk = (materialFilters.length === 0) ||
+        materialFilters.some(m => pMats.includes(m));
+
+      const priceOk = (typeof p.price === "number") ? (p.price <= maxPrice) : true;
+
+      return categoryOk && materialOk && priceOk;
+    });
+
+    filtered.forEach(p => {
+      const div = document.createElement('div');
+      div.className = 'product-item';
+      div.innerHTML = `
+        <img src="${p.img || ''}" alt="${p.title || ''}">
+        <h4>${p.title || ''}</h4>
+        <p>${p.desc || ''}</p>
+        ${typeof p.price === "number" ? `<p class="price">${p.price.toLocaleString('sr-RS')} RSD</p>` : ``}
+        <a href="proizvod.html?id=${p.id}">Погледај детаље</a>
+      `;
+      productList.appendChild(div);
+    });
+  }
+
+  document.querySelectorAll('.filter').forEach(f => f.addEventListener('change', displayProducts));
+  priceRange.addEventListener('input', () => {
+    priceValue.textContent = priceRange.value.toLocaleString('sr-RS') + ' RSD';
+    displayProducts();
+  });
+
+  loadProducts();
+</script>
+
+<script>
+  const body = document.body;
+  const navToggle = document.querySelector('.nav-toggle');
+
+  navToggle.addEventListener('click', () => {
+    body.classList.toggle('nav-open');
+  });
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      body.classList.remove('nav-open');
+    });
+  });
+</script>
+
+
+
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'sr',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  function translateLanguage(lang) {
+    localStorage.setItem('selectedLanguage', lang);
+
+    if (lang === 'sr') {
+      document.cookie = "googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+      location.reload();
+      return;
+    }
+
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLanguage') || 'sr';
+    if (savedLang === 'sr') return;
+
+    let tries = 0;
+    const t = setInterval(() => {
+      const select = document.querySelector(".goog-te-combo");
+      if (select) {
+        select.value = savedLang;
+        select.dispatchEvent(new Event("change"));
+        clearInterval(t);
+      }
+      if (++tries > 30) clearInterval(t);
+    }, 100);
+  });
+</script>
+<script>
+  const langSwitcher = document.getElementById('langSwitcher');
+  const langBtn = document.getElementById('langBtn');
+
+  if (langSwitcher && langBtn) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langSwitcher.classList.toggle('open');
+    });
+
+    langSwitcher.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        translateLanguage(btn.dataset.lang);
+        langSwitcher.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', () => {
+      langSwitcher.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') langSwitcher.classList.remove('open');
+    });
+  }
+</script>
+
+<div id="google_translate_element" style="display:none;"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+</body>
+</html>
