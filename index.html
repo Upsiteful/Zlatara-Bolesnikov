@@ -1039,6 +1039,19 @@ iframe.goog-te-banner-frame { display: none !important; }
   display: none !important;
 }
 
+/* FEATURED PIECES – ujednačene slike */
+.piece-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.piece-card img {
+  width: 100%;
+  height: 280px;          /* izaberi visinu koja ti vizuelno odgovara */
+  object-fit: cover;      /* sve jednake dimenzije, uz blago sečenje */
+  object-position: center;
+  display: block;
+}
 
 
     </style>
@@ -1307,44 +1320,41 @@ iframe.goog-te-banner-frame { display: none !important; }
         </div>
     </section>
 
-    <!-- FEATURED PIECES -->
+   <!-- FEATURED PIECES -->
     <section id="pieces" class="reveal">
         <h2 class="section-title">Издвојени комади</h2>
       
 
         <div class="collection-grid">
             <article class="piece-card">
-                <img src="prsten.jpg"
+                <img src="izdvojeni1.png"
+               
+                
                      alt="Златан прстен са каменом">
                 <div class="piece-body">
-                    <h3>Солитер „Јеврејска“</h3>
-                    <span>класичан веренички модел</span>
-                    <p>Чисте линије и пажљиво бирани каменчићи – минимализам који не стари.</p>
+                    
                 </div>
             </article>
 
             <article class="piece-card">
-                <img src="srebra ogrlica.webp"
+                <img src="izdvojeni2.png"
+              
                      alt="Елегантна огрлица">
                 <div class="piece-body">
-                    <h3>Ланчана огрлица „Дунав“</h3>
-                    <span>свакодневна елеганција</span>
-                    <p>Фини ланац који се лако комбинује са медаљонима и другим комадима.</p>
+                   
                 </div>
             </article>
 
             <article class="piece-card">
-                <img src="mindjuse2.png"
+                <img src="izdvojeni3.png"
+             
                      alt="Златне минђуше">
                 <div class="piece-body">
-                    <h3>Минђуше „Трг слободе“</h3>
-                    <span>за свечане прилике</span>
-                    <p>Детаљно израђени елементи који прате светло и покрет.</p>
+            
                 </div>
             </article>
         </div>
     </section>
-
         <!-- НАКИТ И ГОЛУБОВИ – ПРЕЛАЗНИ ОДЕЉАК -->
     <section class="animals-section reveal">
         <h2 class="section-title">Накит, обележја и голубови</h2>
@@ -1574,6 +1584,7 @@ iframe.goog-te-banner-frame { display: none !important; }
 
 </body>
 </html>
+
 
 
 
