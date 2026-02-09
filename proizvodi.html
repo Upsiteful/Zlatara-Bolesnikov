@@ -520,6 +520,52 @@ iframe.goog-te-banner-frame { display: none !important; }
   display: none !important;
 }
 
+/* === AUTHENTICITY BANNER === */
+.authenticity-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(214, 178, 94, 0.45);
+  background: linear-gradient(
+    135deg,
+    rgba(24, 36, 58, 0.95),
+    rgba(6, 8, 20, 0.98)
+  );
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  max-width: 760px;
+}
+
+.authenticity-banner i {
+  font-size: 22px;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.authenticity-text strong {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.authenticity-text span {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+/* mobile fine-tuning */
+@media (max-width: 480px) {
+  .authenticity-banner {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+}
 
 
   </style>
@@ -634,6 +680,17 @@ iframe.goog-te-banner-frame { display: none !important; }
 
     
   </aside>
+<!-- AUTHENTICITY BANNER -->
+<div class="authenticity-banner reveal">
+  <i class="fa-solid fa-camera"></i>
+  <div class="authenticity-text">
+    <strong>Аутентичне фотографије производа</strong>
+    <span>
+      Сав накит је фотографисан уживо, без ретуширања, филтера и дигиталног улепшавања.
+      Оно што видите – то и добијате.
+    </span>
+  </div>
+</div>
 
   <main class="product-list" id="productList"></main>
 </div>
@@ -846,6 +903,7 @@ iframe.goog-te-banner-frame { display: none !important; }
 
 </body>
 </html>
+
 
 
 
