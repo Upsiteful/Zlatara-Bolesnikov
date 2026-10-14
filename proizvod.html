@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Детаљи производа | Златарска радња Болесников</title>
 
+  <meta name="description" id="seoDescription" content="Погледајте накит Златарске радње Болесников, Јеврејска 42, Нови Сад. Детаљи, цена и могућност поруџбине." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" id="seoCanonical" href="https://zlatarskaradnjabolesnikov.rs/proizvod.html" />
+  <meta property="og:type" content="product" />
+  <meta property="og:title" id="seoOgTitle" content="Накит | Златарска радња Болесников" />
+  <meta property="og:description" id="seoOgDescription" content="Накит Златарске радње Болесников, Нови Сад." />
+  <meta property="og:url" id="seoOgUrl" content="https://zlatarskaradnjabolesnikov.rs/proizvod.html" />
+  <meta property="og:image" id="seoOgImage" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json" id="seoProductSchema">{}</script>
+
   <!-- Fontovi kao na ostatku sajta -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -828,6 +839,47 @@ let currentProductCode = "";
     return oSnap.exists();
   }
 
+  function updateProductSEO(p, ordered) {
+    const name = String(p.title || "Накит").trim();
+    const description = String(p.desc || (name + " — понуда Златарске радње Болесников, Јеврејска 42, Нови Сад.")).trim().slice(0, 300);
+    const url = new URL(window.location.href);
+    url.hash = "";
+    url.search = new URLSearchParams({ id: p.id }).toString();
+    const canonical = url.origin + url.pathname + url.search;
+    const image = p.img ? new URL(String(p.img), window.location.href).href : "";
+    const title = name + " | Златара Болесников, Нови Сад";
+    document.title = title;
+    document.getElementById("seoDescription").setAttribute("content", description);
+    document.getElementById("seoCanonical").setAttribute("href", canonical);
+    document.getElementById("seoOgTitle").setAttribute("content", title);
+    document.getElementById("seoOgDescription").setAttribute("content", description);
+    document.getElementById("seoOgUrl").setAttribute("content", canonical);
+    if (image) document.getElementById("seoOgImage").setAttribute("content", image);
+
+    const rawPrice = typeof p.price === "number" ? p.price : Number(String(p.price || "").replace(/[^\\d.,]/g, "").replace(/\\./g, "").replace(",", "."));
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name,
+      description,
+      url: canonical,
+      ...(image ? { image: [image] } : {}),
+      ...(p.code ? { sku: String(p.code) } : {}),
+      brand: { "@type": "Brand", name: "Златарска радња Болесников" },
+      ...(Number.isFinite(rawPrice) && rawPrice > 0 ? {
+        offers: {
+          "@type": "Offer",
+          url: canonical,
+          priceCurrency: "RSD",
+          price: rawPrice,
+          availability: ordered ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+          seller: { "@type": "JewelryStore", name: "Златарска радња Болесников" }
+        }
+      } : {})
+    };
+    document.getElementById("seoProductSchema").textContent = JSON.stringify(schema).replace(/</g, "\\u003c");
+  }
+
   async function loadProduct() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -851,6 +903,7 @@ let currentProductCode = "";
       }
 
       const p = { id: snap.id, ...snap.data() };
+      updateProductSEO(p, isAlreadyOrdered);
       currentProductTitle = p.title || "Производ";
 currentProductCode = (p.code || "").toString().trim();
 
