@@ -1047,7 +1047,23 @@ iframe.goog-te-banner-frame { display: none !important; }
 }
 
 
-    </style>
+    
+/* Padajuci meni nakita – desktop i mobilni */
+.jewelry-dropdown { position:relative; color:var(--soft-gold); }
+.jewelry-dropdown > summary { cursor:pointer; list-style:none; display:flex; align-items:center; gap:8px; padding-bottom:3px; user-select:none; }
+.jewelry-dropdown > summary::-webkit-details-marker { display:none; }
+.jewelry-dropdown > summary i { font-size:10px; transition:transform .2s ease; }
+.jewelry-dropdown[open] > summary i { transform:rotate(180deg); }
+.jewelry-dropdown-menu { position:absolute; z-index:100; top:calc(100% + 14px); left:0; min-width:205px; display:flex; flex-direction:column; gap:0; padding:8px; border:1px solid rgba(214,178,94,.35); border-radius:12px; background:#050816; box-shadow:0 18px 45px rgba(0,0,0,.5); }
+.jewelry-dropdown-menu a { display:block; padding:11px 12px; white-space:nowrap; font-size:11px; letter-spacing:.08em; }
+.jewelry-dropdown-menu a:hover, .jewelry-dropdown-menu a:focus-visible { background:rgba(214,178,94,.15); border-radius:6px; }
+@media(max-width:768px) {
+  .jewelry-dropdown { width:100%; text-align:center; }
+  .jewelry-dropdown > summary { justify-content:center; }
+  .jewelry-dropdown-menu { position:static; box-shadow:none; margin-top:10px; min-width:0; width:100%; }
+  .jewelry-dropdown-menu a { white-space:normal; }
+}
+</style>
 <link href="https://zlatarskaradnjabolesnikov.rs/" rel="canonical"/><meta content="website" property="og:type"/><meta content="sr_RS" property="og:locale"/><meta content="Zlatarska radnja Bolesnikov" property="og:site_name"/><meta content="Zlatara Novi Sad | Zlatni i srebrni nakit – Bolesnikov" property="og:title"/><meta content="Zlatarska radnja Bolesnikov u Novom Sadu: zlatni i srebrni nakit, burme, vereničko prstenje, popravka i izrada nakita po meri. Pogledajte kolekciju." property="og:description"/><meta content="https://zlatarskaradnjabolesnikov.rs/" property="og:url"/></head>
 <body>
 <header>
@@ -1063,7 +1079,17 @@ iframe.goog-te-banner-frame { display: none !important; }
 <a href="index.html">Насловна</a>
 <a href="#about">О златари</a>
 <a href="#services">Услуге</a>
-<a href="proizvodi.html">Колекција</a>
+<details class="jewelry-dropdown">
+<summary aria-label="Отвори категорије накита">Накит <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+<div class="jewelry-dropdown-menu">
+<a href="proizvodi.html">Сви производи</a>
+<a href="prsten.html">Прстен</a>
+<a href="ogrlica.html">Огрлица</a>
+<a href="narukvica.html">Наруквица</a>
+<a href="zlato.html">Златни накит</a>
+<a href="srebro.html">Сребрни накит</a>
+</div>
+</details>
 <!-- Дугме – Font Awesome голуб -->
 <a aria-label="Такмичарски голубови" class="pigeon-btn" href="https://upsiteful.github.io/Bolesnikov-racing-pigeons/">
 <i class="fa-solid fa-dove"></i>
@@ -1494,5 +1520,17 @@ iframe.goog-te-banner-frame { display: none !important; }
 </script>
 <div id="google_translate_element" style="display:none;"></div>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector('.jewelry-dropdown');
+    if (menu && menu.open && !menu.contains(event.target)) menu.open = false;
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      const menu = document.querySelector('.jewelry-dropdown');
+      if (menu) menu.open = false;
+    }
+  });
+</script>
 </body>
 </html>
